@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "177433541490",
+    "firebase_url": "https://vocemonitorapoa.firebaseio.com",
+    "project_id": "vocemonitorapoa",
+    "storage_bucket": "vocemonitorapoa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177433541490:android:f6d330783dafb70d713beb",
+        "android_client_info": {
+          "package_name": "com.sms.vocemonitorapoa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177433541490-3keq3mbcokk5i73nj2eu0dmj9goo64e2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sms.vocemonitorapoa",
+            "certificate_hash": "711d258eb05a238aaab3a8b37a0f1fa772749b54"
+          }
+        },
+        {
+          "client_id": "177433541490-eis604k81o7nei82bj72juol43ikv481.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjvRNcBmtoH4bldFxoUXAVAucKl6mXxHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177433541490-eis604k81o7nei82bj72juol43ikv481.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "177433541490-2gmnf884s0t17o96lc0477rdpkiovb06.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sms.vocemonitorapoa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
