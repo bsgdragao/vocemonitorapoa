@@ -33,13 +33,14 @@ class _EmailLoginState extends State<EmailLogin> {
     // TODO: implement initState
     super.initState();
     autoLogIn();
-    widget.auth.currentUser().then((userId){
-      setState(() {
-        authStatus = userId == null ? AuthStatus.naoLogado : AuthStatus.logado;
-
+      widget.auth.currentUser().then((userId) {
+        setState(() {
+          authStatus =
+          userId == null ? AuthStatus.naoLogado : AuthStatus.logado;
+        });
       });
-    });
-  }
+    }
+
 
   // Validação se os dados de formulário foram preeenchidos
   bool validateAndSave(){
@@ -60,31 +61,54 @@ class _EmailLoginState extends State<EmailLogin> {
         if(_formType == FormType.login) {
           String userId = await widget.auth.signInWithEmailAndPassword(
               _email, _password);
+          print("1º if Validade and Submit");
 
-          if(authStatus == AuthStatus.logado){
-            autoLogIn();
-          }else{
-            autoLogIn();
-            if(authStatus == AuthStatus.naoLogado) {
-              Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => EmailLogin()
-                ),
-              );
-            }
-          }
         }else{
           // Se for registro
           String userId = await widget.auth.createUserWithEmailAndPassword(
               _email, _password);
-
         }
       }catch(e){
         print('Erro ao fazer login $e');
+        _showDialog("Erro", "Erro ao fazer login $e");
+
+      }
+      if(_email != null){
+        print("Logado no Validade and Submit");
+        setState(() {
+          autoLogIn();
+        });
+      }else{
+        print("Não logado, passou no else do validate and Submit");
+
       }
     }
   }
+
+// Função de alerta
+  void _showDialog(String title, String message) {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text(title),
+          content: new Text(message),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   // Troca de tela e Reset de dados ao trocar de opção
   void moveToRegister(){
     formKey.currentState.reset();
@@ -117,14 +141,6 @@ class _EmailLoginState extends State<EmailLogin> {
         name = userId;
         Navigator.push(context,
           MaterialPageRoute(builder: (context) => PerfilComEmail(email: _email,), ),);
-
-        //print("Salvou name: ");
-//        Navigator.push(
-//          context,
-//          new MaterialPageRoute(
-//              builder: (context) => PerfilComEmail(snapshot: )
-//          ),
-//        );
       });
       return;
     }
