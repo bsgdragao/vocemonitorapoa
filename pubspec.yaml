@@ -36,7 +36,8 @@ dev_dependencies:
   flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
-
+  flutter_facebook_login: ^3.0.0
+  http:
 
 flutter_icons:
   android: "launcher_icon"
