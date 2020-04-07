@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">177433541490-eis604k81o7nei82bj72juol43ikv481.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://vocemonitorapoa.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">177433541490</string>
+    <string name="google_api_key" translatable="false">AIzaSyDjvRNcBmtoH4bldFxoUXAVAucKl6mXxHI</string>
+    <string name="google_app_id" translatable="false">1:177433541490:android:f6d330783dafb70d713beb</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDjvRNcBmtoH4bldFxoUXAVAucKl6mXxHI</string>
+    <string name="google_storage_bucket" translatable="false">vocemonitorapoa.appspot.com</string>
+    <string name="project_id" translatable="false">vocemonitorapoa</string>
+</resources>

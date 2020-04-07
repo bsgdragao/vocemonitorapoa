@@ -19,3 +19,5 @@ Warning:
 O armazenamento de chaves JKS usa um formato proprietário. É recomendada a migração para PKCS12, que é um formato de padrão industrial que usa "keyto
 ol -importkeystore -srckeystore c:\Users\bruno\.android\debug.keystore -destkeystore c:\Users\bruno\.android\debug.keystore -deststoretype pkcs12".
 
+
+cR0ljrBal4qqs6izeg8fp3J0m1q=

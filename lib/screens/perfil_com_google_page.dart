@@ -124,11 +124,7 @@ class PerfilGoogle extends StatelessWidget {
               "Avalie o tempo de espera \n     de uma emergência." ,
               style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 20.0),
             ),
-            //Text(
-            //  "Provider : " + detailsUser.providerDetails,
-            //   style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.black,fontSize: 20.0),
-            //   ),
-          ],
+           ],
         ),)
     );
   }
