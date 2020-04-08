@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'file:///C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/lib/hospitais_pages/triagem_grid_page.dart';
+import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 import '../main.dart';
 
 
