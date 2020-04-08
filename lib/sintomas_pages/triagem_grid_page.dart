@@ -144,7 +144,7 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new ObjetosNoCorpoPage(),
            ),
          );
-         print('Selecionou manchas');
+         print('Selecionou Objetos');
        break;
        // Página para problemas no olho
        case 'Olho':
@@ -164,9 +164,9 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new OssoQuebradoPage(),
            ),
          );
-           print('Selecionou olho');
+           print('Selecionou Osso quebrado');
        break;
-
+     // Página para problemas com pancadas
        case 'Pancada':
          Navigator.push(
            context,
@@ -174,7 +174,7 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new PancadaPage(),
            ),
          );
-         print('Selecionou olho');
+         print('Selecionou pancada');
        break;
 
        case 'Sangramento':
@@ -184,7 +184,7 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new SangramentoPage(),
            ),
          );
-         print('Selecionou olho');
+         print('Selecionou sangramento');
        break;
 
        case 'Tosse':
