@@ -4795,6 +4795,7 @@ firebase_core
 firebase_core_platform_interface
 shared_preferences
 shared_preferences_platform_interface
+url_launcher
 
 // Copyright 2017 The Chromium Authors. All rights reserved.
 //
@@ -4826,6 +4827,8 @@ shared_preferences_platform_interface
 --------------------------------------------------------------------------------
 firebase_core_web
 shared_preferences_web
+url_launcher_macos
+url_launcher_web
 
 // Copyright 2019 The Chromium Authors. All rights reserved.
 //
@@ -6329,6 +6332,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 google_sign_in_platform_interface
+url_launcher_platform_interface
 
 // Copyright 2017 The Chromium Authors. All rights reserved.
 //
@@ -11349,11 +11353,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 petitparser
-xml
 
 The MIT License
 
-Copyright (c) 2006-2019 Lukas Renggli.
+Copyright (c) 2006-2020 Lukas Renggli.
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -14333,6 +14336,32 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
    of your accepting any such warranty or additional liability.
 
 END OF TERMS AND CONDITIONS
+--------------------------------------------------------------------------------
+xml
+
+The MIT License
+
+Copyright (c) 2006-2019 Lukas Renggli.
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
 --------------------------------------------------------------------------------
 xxhash
 

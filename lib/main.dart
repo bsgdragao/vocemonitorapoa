@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:vocemonitorapoa/screens/login_facebook_page.dart';
-import 'package:vocemonitorapoa/screens/login_email_page.dart';
-import 'package:vocemonitorapoa/screens/perfil_com_google_page.dart';
+import 'package:vocemonitorapoa/initial_pages/login_com_facebook_page.dart';
+import 'package:vocemonitorapoa/initial_pages/login_com_email_page.dart';
+import 'package:vocemonitorapoa/initial_pages/perfil_com_google_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
 
 void main() {

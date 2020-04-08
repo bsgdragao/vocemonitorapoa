@@ -12,9 +12,12 @@ MERGED from [:google_sign_in_web] C:\Users\bruno\VisualStudioProjects\voce_monit
 MERGED from [:firebase_core] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_facebook_login] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\flutter_facebook_login\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:shared_preferences] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_macos] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences_macos\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_macos] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher_macos\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-analytics:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\a101a2c348c5704d6e9f6017ac495706\jetified-firebase-analytics-17.3.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.android:facebook-login:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\5a98afb0c24281476fdad79431336588\jetified-facebook-login-5.15.3\AndroidManifest.xml:21:1-31:12
 MERGED from [com.facebook.android:facebook-common:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\0d42b0aa0e488c7aa3ed4e180f412a8f\jetified-facebook-common-5.15.3\AndroidManifest.xml:21:1-52:12
@@ -114,6 +117,8 @@ MERGED from [:firebase_auth] C:\Users\bruno\VisualStudioProjects\voce_monitora_p
 MERGED from [:firebase_auth] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-analytics:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\a101a2c348c5704d6e9f6017ac495706\jetified-firebase-analytics-17.3.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\a101a2c348c5704d6e9f6017ac495706\jetified-firebase-analytics-17.3.0\AndroidManifest.xml:7:5-20
 MERGED from [com.facebook.android:facebook-login:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\5a98afb0c24281476fdad79431336588\jetified-facebook-login-5.15.3\AndroidManifest.xml:28:5-29:19
@@ -278,12 +283,18 @@ MERGED from [:firebase_core_web] C:\Users\bruno\VisualStudioProjects\voce_monito
 MERGED from [:firebase_core_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_login] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\flutter_facebook_login\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_login] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\flutter_facebook_login\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_macos] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences_macos\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_macos] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\shared_preferences_macos\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_macos] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher_macos\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_macos] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher_macos\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_web] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\a101a2c348c5704d6e9f6017ac495706\jetified-firebase-analytics-17.3.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\a101a2c348c5704d6e9f6017ac495706\jetified-firebase-analytics-17.3.0\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.android:facebook-login:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\5a98afb0c24281476fdad79431336588\jetified-facebook-login-5.15.3\AndroidManifest.xml:24:5-26:41
@@ -440,6 +451,14 @@ ADDED from [:firebase_core] C:\Users\bruno\VisualStudioProjects\voce_monitora_po
 		ADDED from [:firebase_core] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-123
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
 activity#com.facebook.CustomTabMainActivity
 ADDED from [com.facebook.android:facebook-common:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\0d42b0aa0e488c7aa3ed4e180f412a8f\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
 	android:name

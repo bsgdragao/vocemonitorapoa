@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vocemonitorapoa/screens/login_email_page.dart';
-import 'package:vocemonitorapoa/screens/perfil_com_email_page.dart';
-import 'package:vocemonitorapoa/screens/perfil_com_google_page.dart';
+import 'package:vocemonitorapoa/initial_pages/login_com_email_page.dart';
+import 'package:vocemonitorapoa/initial_pages/perfil_com_email_page.dart';
+
 
 import 'auth.dart';
 

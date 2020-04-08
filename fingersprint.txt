@@ -21,3 +21,5 @@ ol -importkeystore -srckeystore c:\Users\bruno\.android\debug.keystore -destkeys
 
 
 cR0ljrBal4qqs6izeg8fp3J0m1q=
+cR0ljrBal4qqs6izeg8fp3jOm1Q=
+cR0ljrBaI4qqs6izeg8fp3J0m1Q=

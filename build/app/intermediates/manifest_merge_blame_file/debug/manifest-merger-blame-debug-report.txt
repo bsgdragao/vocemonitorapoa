@@ -210,166 +210,174 @@
 125-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:34:17-82
 126        </service>
 127
-128        <activity android:name="com.facebook.CustomTabMainActivity" />
-128-->[com.facebook.android:facebook-common:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\0d42b0aa0e488c7aa3ed4e180f412a8f\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
-128-->[com.facebook.android:facebook-common:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\0d42b0aa0e488c7aa3ed4e180f412a8f\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:19-68
-129        <activity
-129-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:24:9-31:50
-130            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-130-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:25:13-85
-131            android:excludeFromRecents="true"
-131-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:26:13-46
-132            android:exported="true"
-132-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:27:13-36
-133            android:launchMode="singleTask"
-133-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:28:13-44
-134            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-134-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:29:13-102
-135            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-135-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:30:13-72
-136
-137        <receiver
-137-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:29:9-33:20
-138            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-138-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:30:13-85
-139            android:enabled="true"
-139-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:31:13-35
-140            android:exported="false" >
-140-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:32:13-37
-141        </receiver>
-142        <receiver
-142-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:34:9-42:20
-143            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-143-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:35:13-100
-144            android:enabled="true"
-144-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:36:13-35
-145            android:exported="true"
-145-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:37:13-36
-146            android:permission="android.permission.INSTALL_PACKAGES" >
-146-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:38:13-69
-147            <intent-filter>
-147-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:39:13-41:29
-148                <action android:name="com.android.vending.INSTALL_REFERRER" />
-148-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:40:17-79
-148-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:40:25-76
-149            </intent-filter>
-150        </receiver>
-151
-152        <service
-152-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:44:9-47:40
-153            android:name="com.google.android.gms.measurement.AppMeasurementService"
-153-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:45:13-84
-154            android:enabled="true"
-154-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:46:13-35
-155            android:exported="false" />
-155-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:47:13-37
+128        <activity
+128-->[:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+129            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+129-->[:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
+130            android:exported="false"
+130-->[:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+131            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+131-->[:url_launcher] C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+132        <activity android:name="com.facebook.CustomTabMainActivity" />
+132-->[com.facebook.android:facebook-common:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\0d42b0aa0e488c7aa3ed4e180f412a8f\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
+132-->[com.facebook.android:facebook-common:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\0d42b0aa0e488c7aa3ed4e180f412a8f\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:19-68
+133        <activity
+133-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:24:9-31:50
+134            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+134-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:25:13-85
+135            android:excludeFromRecents="true"
+135-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:26:13-46
+136            android:exported="true"
+136-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:27:13-36
+137            android:launchMode="singleTask"
+137-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:28:13-44
+138            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+138-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:29:13-102
+139            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+139-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b0d687bba8e5181aa65826f13ef1c781\jetified-firebase-auth-19.2.0\AndroidManifest.xml:30:13-72
+140
+141        <receiver
+141-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:29:9-33:20
+142            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+142-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:30:13-85
+143            android:enabled="true"
+143-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:31:13-35
+144            android:exported="false" >
+144-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:32:13-37
+145        </receiver>
+146        <receiver
+146-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:34:9-42:20
+147            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+147-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:35:13-100
+148            android:enabled="true"
+148-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:36:13-35
+149            android:exported="true"
+149-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:37:13-36
+150            android:permission="android.permission.INSTALL_PACKAGES" >
+150-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:38:13-69
+151            <intent-filter>
+151-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:39:13-41:29
+152                <action android:name="com.android.vending.INSTALL_REFERRER" />
+152-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:40:17-79
+152-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:40:25-76
+153            </intent-filter>
+154        </receiver>
+155
 156        <service
-156-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:48:9-52:72
-157            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-157-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:49:13-87
+156-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:44:9-47:40
+157            android:name="com.google.android.gms.measurement.AppMeasurementService"
+157-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:45:13-84
 158            android:enabled="true"
-158-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:50:13-35
-159            android:exported="false"
-159-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:51:13-37
-160            android:permission="android.permission.BIND_JOB_SERVICE" />
-160-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:52:13-69
-161
-162        <activity
-162-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
-163            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-163-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:24:13-93
-164            android:excludeFromRecents="true"
-164-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:25:13-46
-165            android:exported="false"
-165-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:26:13-37
-166            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-166-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:27:13-72
-167        <!--
-168            Service handling Google Sign-In user revocation. For apps that do not integrate with
-169            Google Sign-In, this service will never be started.
-170        -->
-171        <service
-171-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:33:9-36:110
-172            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-172-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:34:13-89
-173            android:exported="true"
-173-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:35:13-36
-174            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
-174-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:36:13-107
-175
-176        <receiver
-176-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:37:9-44:20
-177            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-177-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:38:13-78
-178            android:exported="true"
-178-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:39:13-36
-179            android:permission="com.google.android.c2dm.permission.SEND" >
-179-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:40:13-73
-180            <intent-filter>
-180-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:41:13-43:29
-181                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-181-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:42:17-81
-181-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:42:25-78
-182            </intent-filter>
-183        </receiver>
-184
-185        <provider
-185-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
-186            android:name="com.google.firebase.provider.FirebaseInitProvider"
-186-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
-187            android:authorities="com.sms.vocemonitorapoa.firebaseinitprovider"
-187-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
-188            android:exported="false"
-188-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
-189            android:initOrder="100" />
-189-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
-190
-191        <activity
-191-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
-192            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-192-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
-193            android:exported="false"
-193-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
-194            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-194-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
-195
-196        <meta-data
-196-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\f2c8b4624d1269ee053bd8db8444a9c2\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-197            android:name="com.google.android.gms.version"
-197-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\f2c8b4624d1269ee053bd8db8444a9c2\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-198            android:value="@integer/google_play_services_version" />
-198-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\f2c8b4624d1269ee053bd8db8444a9c2\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-199        <!--
-200         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
-201         with the application context. This config is merged in with the host app's manifest,
-202         but there can only be one provider with the same authority activated at any given
-203         point; so if the end user has two or more different apps that use Facebook SDK, only the
-204         first one will be able to use the provider. To work around this problem, we use the
-205         following placeholder in the authority to identify each host application as if it was
-206         a completely different provider.
-207        -->
-208        <provider
-208-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:39:9-42:40
-209            android:name="com.facebook.internal.FacebookInitProvider"
-209-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:40:13-70
-210            android:authorities="com.sms.vocemonitorapoa.FacebookInitProvider"
-210-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:41:13-72
-211            android:exported="false" />
-211-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:42:13-37
-212
-213        <receiver
-213-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:44:9-50:20
-214            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
-214-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:45:13-86
-215            android:exported="false" >
-215-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:46:13-37
-216            <intent-filter>
-216-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:47:13-49:29
-217                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
-217-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:17-95
-217-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:25-92
-218            </intent-filter>
-219        </receiver>
-220    </application>
-221
-222</manifest>
+158-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:46:13-35
+159            android:exported="false" />
+159-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:47:13-37
+160        <service
+160-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:48:9-52:72
+161            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+161-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:49:13-87
+162            android:enabled="true"
+162-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:50:13-35
+163            android:exported="false"
+163-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:51:13-37
+164            android:permission="android.permission.BIND_JOB_SERVICE" />
+164-->[com.google.android.gms:play-services-measurement:17.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\b2ee24cafb186b9bb5ab40319c6d2908\jetified-play-services-measurement-17.3.0\AndroidManifest.xml:52:13-69
+165
+166        <activity
+166-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
+167            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+167-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:24:13-93
+168            android:excludeFromRecents="true"
+168-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:25:13-46
+169            android:exported="false"
+169-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:26:13-37
+170            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+170-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:27:13-72
+171        <!--
+172            Service handling Google Sign-In user revocation. For apps that do not integrate with
+173            Google Sign-In, this service will never be started.
+174        -->
+175        <service
+175-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:33:9-36:110
+176            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+176-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:34:13-89
+177            android:exported="true"
+177-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:35:13-36
+178            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+178-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\6011b92c047e95883e70f590b01673a3\jetified-play-services-auth-16.0.1\AndroidManifest.xml:36:13-107
+179
+180        <receiver
+180-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:37:9-44:20
+181            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+181-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:38:13-78
+182            android:exported="true"
+182-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:39:13-36
+183            android:permission="com.google.android.c2dm.permission.SEND" >
+183-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:40:13-73
+184            <intent-filter>
+184-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:41:13-43:29
+185                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+185-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:42:17-81
+185-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\fdf35e2646cc7d6e6f0ccd9276867112\jetified-firebase-iid-20.0.2\AndroidManifest.xml:42:25-78
+186            </intent-filter>
+187        </receiver>
+188
+189        <provider
+189-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+190            android:name="com.google.firebase.provider.FirebaseInitProvider"
+190-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+191            android:authorities="com.sms.vocemonitorapoa.firebaseinitprovider"
+191-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+192            android:exported="false"
+192-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+193            android:initOrder="100" />
+193-->[com.google.firebase:firebase-common:19.3.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\89e8c50f4adcfa71f0d90282494b2c06\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+194
+195        <activity
+195-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+196            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+196-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+197            android:exported="false"
+197-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+198            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+198-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\8d306c96d5671c46c09e41df093ec68f\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+199
+200        <meta-data
+200-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\f2c8b4624d1269ee053bd8db8444a9c2\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+201            android:name="com.google.android.gms.version"
+201-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\f2c8b4624d1269ee053bd8db8444a9c2\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+202            android:value="@integer/google_play_services_version" />
+202-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\f2c8b4624d1269ee053bd8db8444a9c2\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+203        <!--
+204         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+205         with the application context. This config is merged in with the host app's manifest,
+206         but there can only be one provider with the same authority activated at any given
+207         point; so if the end user has two or more different apps that use Facebook SDK, only the
+208         first one will be able to use the provider. To work around this problem, we use the
+209         following placeholder in the authority to identify each host application as if it was
+210         a completely different provider.
+211        -->
+212        <provider
+212-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:39:9-42:40
+213            android:name="com.facebook.internal.FacebookInitProvider"
+213-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:40:13-70
+214            android:authorities="com.sms.vocemonitorapoa.FacebookInitProvider"
+214-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:41:13-72
+215            android:exported="false" />
+215-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:42:13-37
+216
+217        <receiver
+217-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:44:9-50:20
+218            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+218-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:45:13-86
+219            android:exported="false" >
+219-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:46:13-37
+220            <intent-filter>
+220-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:47:13-49:29
+221                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+221-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:17-95
+221-->[com.facebook.android:facebook-core:5.15.3] C:\Users\bruno\.gradle\caches\transforms-2\files-2.1\d9bf8949aff43e4d25aa4830d3909c72\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:25-92
+222            </intent-filter>
+223        </receiver>
+224    </application>
+225
+226</manifest>
