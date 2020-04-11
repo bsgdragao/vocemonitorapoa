@@ -25,8 +25,6 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
     // TODO: implement initState
     super.initState();
     print(widget.email);
-
-
   }
 
   // Função para logout
@@ -38,11 +36,8 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-
-
     return  Scaffold(
         appBar:  AppBar(
           title:  Text("Usuário Anônimo", style: TextStyle(
@@ -72,7 +67,6 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(height:30.0),
-
             CircleAvatar(
               backgroundImage:AssetImage('assets/contato1.png'),
               radius: 50.0,
@@ -88,7 +82,6 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
               style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blueAccent,fontSize: 20.0),
             ),
             SizedBox(height:30.0),
-
             Container(
                 width: 280.0,
                 child: Align(

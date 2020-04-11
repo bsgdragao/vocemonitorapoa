@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:vocemonitorapoa/hospitais_pages/atende_coluna_adulto.dart';
-import 'package:vocemonitorapoa/hospitais_pages/atende_coluna_infantil.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_coluna_adulto.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_coluna_infantil.dart';
 
 class ColunaPage extends StatelessWidget {
   @override
@@ -39,9 +39,9 @@ class ColunaPage extends StatelessWidget {
                 ],),
               onPressed: () {
                 Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaAdulto(),
+                        context,
+                        new MaterialPageRoute(
+                          builder: (context) => new AtendeColunaAdulto(),
                   ),
                 );
               },

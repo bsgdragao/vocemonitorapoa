@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/initial_pages/perfil_com_email_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
 import 'package:vocemonitorapoa/tasks/status_login.dart';
-
+import 'package:vocemonitorapoa/user.dart';
 
 class EmailLogin extends StatefulWidget {
   EmailLogin({this.auth});
@@ -41,7 +42,6 @@ class _EmailLoginState extends State<EmailLogin> {
       });
     }
 
-
   // Validação se os dados de formulário foram preeenchidos
   bool validateAndSave(){
     final form = formKey.currentState;
@@ -62,7 +62,6 @@ class _EmailLoginState extends State<EmailLogin> {
           String userId = await widget.auth.signInWithEmailAndPassword(
               _email, _password);
           print("1º if Validade and Submit");
-
         }else{
           // Se for registro
           String userId = await widget.auth.createUserWithEmailAndPassword(
@@ -71,7 +70,6 @@ class _EmailLoginState extends State<EmailLogin> {
       }catch(e){
         print('Erro ao fazer login $e');
         _showDialog("Erro", "Erro ao fazer login $e");
-
       }
       if(_email != null){
         print("Logado no Validade and Submit");
@@ -80,7 +78,6 @@ class _EmailLoginState extends State<EmailLogin> {
         });
       }else{
         print("Não logado, passou no else do validate and Submit");
-
       }
     }
   }
@@ -126,11 +123,10 @@ class _EmailLoginState extends State<EmailLogin> {
 
   //Bloco de persistência do Login
   TextEditingController nameController = TextEditingController();
-
   bool isLoggedIn = false;
   String name = '';
 
-  void autoLogIn() async {
+    void autoLogIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String userId = await widget.auth.signInWithEmailAndPassword(
         _email, _password);
@@ -139,8 +135,15 @@ class _EmailLoginState extends State<EmailLogin> {
       setState(() {
         isLoggedIn = true;
         name = userId;
+        print('Abriu no if do autoLogIn');
+        var user = FirebaseAuth.instance.currentUser();
+        UserLogged userLogged = new UserLogged();
+        var _id = userId;
+        //print(_id);
+        userLogged.saveUser(_id, 'Anônimo', _email);
         Navigator.push(context,
           MaterialPageRoute(builder: (context) => PerfilComEmail(email: _email,), ),);
+
       });
       return;
     }
@@ -182,11 +185,12 @@ class _EmailLoginState extends State<EmailLogin> {
           title: Text('Login com E-mail', style: TextStyle(color: Colors.blue[700] ),),
         ),
         body: new Container(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(10.0),
             // Formulário
             child: new Form(
               key: formKey,
               child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 // Método modular do formulário entre registro e login
                 children: builInputs() + buildSubmitButtons(),
@@ -204,11 +208,13 @@ class _EmailLoginState extends State<EmailLogin> {
         validator: (value) => value.isEmpty ? 'Email não pode ser em branco' : null,
         onSaved: (value) => _email = value,
       ),
+      SizedBox(height:14.0),
       new TextFormField(
-        decoration: new InputDecoration(labelText: 'Senha' ),
         obscureText: true,
+        decoration: new InputDecoration(labelText: 'Senha' ),
         validator: (value) => value.isEmpty ? 'Senha não pode ser em branco, minimo 6 caracteres.' : null,
         onSaved: (value) => _password = value,
+
       ),
     ];
   }
@@ -216,11 +222,13 @@ class _EmailLoginState extends State<EmailLogin> {
   List<Widget> buildSubmitButtons(){
     if(_formType == FormType.login){
       return[
+        SizedBox(height:40.0),
         new RaisedButton(
           child: new Text('Login', style: new TextStyle(fontSize: 20.0),),
           onPressed: validateAndSubmitLogin,
 
         ),
+        SizedBox(height:10.0),
         new FlatButton(onPressed: moveToRegister,
             child: Text('Não tem conta? Crie uma.', style: TextStyle(fontSize: 20.0) ))
       ];
@@ -238,6 +246,8 @@ class _EmailLoginState extends State<EmailLogin> {
 
   }
 }
+
+
 
 
 
