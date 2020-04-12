@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
+import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 
 
 
@@ -137,13 +139,12 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     ),
                   ],),
                 onPressed: () {
-//                      Navigator.push(
-//                        context,
-//                        new MaterialPageRoute(
-//                          builder: (context) => new ShoppingList(),
-//                        ),
-//                      );
-
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                          builder: (context) => new TriagemPage(),
+                        ),
+                 );
                 },
               ),
             )
@@ -173,12 +174,12 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     ),
                   ],),
                 onPressed: () {
-//                      Navigator.push(
-//                        context,
-//                        new MaterialPageRoute(
-//                          builder: (context) => new ShoppingList(),
-//                        ),
-//                      );
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                          builder: (context) => new HospitaisList(),
+                        ),
+                 );
                 },
               ),
             )
