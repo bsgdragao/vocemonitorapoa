@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 
 
 class HospitaisList extends StatelessWidget {
-//  String _title = 'Teste';
-//  String _date = 'hoje';
-//  String _description = 'teste de formato';
-  Image _img;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +11,7 @@ class HospitaisList extends StatelessWidget {
       debugShowCheckedModeBanner: false,
     home: Scaffold(
      appBar: AppBar(
-       title: Text("Selecione um hospital para: \n Avaliar o tempo de atendimento"),
-
+       title: Text("Selecione um hospital para: "),
      ),
       body:  new Container(
         padding: new EdgeInsets.all(14.0),
@@ -23,8 +19,12 @@ class HospitaisList extends StatelessWidget {
             child: new ListView(
                 shrinkWrap: true,
               children: <Widget>[
+                AutoSizeText('Clique em um hospital para avaliar o tempo de espera...',
+                 style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),minFontSize: 18.0,),
+                SizedBox(height: 20.0),
                 // Instituto de Cardiologia
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/cardiologia.png',
@@ -45,9 +45,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital de clinicas
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/clinicas.png',
@@ -68,9 +74,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital de clinicas Pediatria
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/clinicasp.png',
@@ -91,78 +103,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.0),
-                // Hospital Hospital Materno Infantil Presidente Vargas
-                new Row(
-                  children: <Widget>[
-                    new FadeInImage.assetNetwork(
-                        placeholder: 'assets/hospitais/vargas.png',
-                        image: '',
-                        fit: BoxFit.cover,
-                        width: 95.0,
-                        height: 95.0
-                    ),
-                    new Column(
-                      crossAxisAlignment:CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new AutoSizeText(' Hospital Materno Infantil Presidente Vargas',
-                          style: TextStyle( color: Colors.blue[600], fontWeight: FontWeight.w900),),
-                        new AutoSizeText(' Av. Independência, 661 \n Independência, Porto Alegre', style: TextStyle( color: Colors.blue[600]),),
-                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                // Hospital Nossa Senhora da Conceição
-                new Row(
-                  children: <Widget>[
-                    new FadeInImage.assetNetwork(
-                        placeholder: 'assets/hospitais/hnsc.png',
-                        image: '',
-                        fit: BoxFit.cover,
-                        width: 95.0,
-                        height: 95.0
-                    ),
-                    new Column(
-                      crossAxisAlignment:CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new AutoSizeText(' Hospital Conceição (HNSC)',
-                          style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
-                        new AutoSizeText(' Av. Francisco Trein, 596 \n Cristo Redentor, Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
-                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                // Hospital Nossa Senhora da Conceição Pediatria
-                new Row(
-                  children: <Widget>[
-                    new FadeInImage.assetNetwork(
-                        placeholder: 'assets/hospitais/hnscp.png',
-                        image: '',
-                        fit: BoxFit.cover,
-                        width: 95.0,
-                        height: 95.0
-                    ),
-                    new Column(
-                      crossAxisAlignment:CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new AutoSizeText(' Hospital Conceição - PEDIATRIA',
-                          style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
-                        new AutoSizeText(' Rua Álvares Cabral, 653 \n Cristo Redentor - Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
-                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
-                      ],
-                    ),
-                  ],
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
                 ),
                 SizedBox(height: 10.0),
                 // Hospital Cristo Redentor (HCR)
-                new Row(
+                new InkWell(
+                child: new Row(
                     children: <Widget>[
                       new FadeInImage.assetNetwork(
                           placeholder: 'assets/hospitais/cristo_redentor.png',
@@ -183,9 +132,102 @@ class HospitaisList extends StatelessWidget {
                       ),
                     ]
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
+                SizedBox(height: 10.0),
+                // Hospital Hospital Materno Infantil Presidente Vargas
+                new InkWell(
+                child: new Row(
+                  children: <Widget>[
+                    new FadeInImage.assetNetwork(
+                        placeholder: 'assets/hospitais/vargas.png',
+                        image: '',
+                        fit: BoxFit.cover,
+                        width: 95.0,
+                        height: 95.0
+                    ),
+                    new Column(
+                      crossAxisAlignment:CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new AutoSizeText(' Hospital Materno Infantil Presidente Vargas',
+                          style: TextStyle( color: Colors.blue[600], fontWeight: FontWeight.w900),),
+                        new AutoSizeText(' Av. Independência, 661 \n Independência, Porto Alegre', style: TextStyle( color: Colors.blue[600]),),
+                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
+                      ],
+                    ),
+                  ],
+                ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
+                SizedBox(height: 10.0),
+                // Hospital Nossa Senhora da Conceição
+                new InkWell(
+                child: new Row(
+                  children: <Widget>[
+                    new FadeInImage.assetNetwork(
+                        placeholder: 'assets/hospitais/hnsc.png',
+                        image: '',
+                        fit: BoxFit.cover,
+                        width: 95.0,
+                        height: 95.0
+                    ),
+                    new Column(
+                      crossAxisAlignment:CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new AutoSizeText(' Hospital Conceição (HNSC)',
+                          style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
+                        new AutoSizeText(' Av. Francisco Trein, 596 \n Cristo Redentor, Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
+                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
+                      ],
+                    ),
+                  ],
+                ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
+                SizedBox(height: 10.0),
+                // Hospital Nossa Senhora da Conceição Pediatria
+                new InkWell(
+                child: Row(
+                  children: <Widget>[
+                    new FadeInImage.assetNetwork(
+                        placeholder: 'assets/hospitais/hnscp.png',
+                        image: '',
+                        fit: BoxFit.cover,
+                        width: 95.0,
+                        height: 95.0
+                    ),
+                    new Column(
+                      crossAxisAlignment:CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new AutoSizeText(' Hospital Conceição - PEDIATRIA',
+                          style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
+                        new AutoSizeText(' Rua Álvares Cabral, 653 \n Cristo Redentor - Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
+                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
+                      ],
+                    ),
+                  ],
+                ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital Pronto Socorro
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                   new FadeInImage.assetNetwork(
                       placeholder: 'assets/hospitais/pronto_socorro.png',
@@ -206,9 +248,15 @@ class HospitaisList extends StatelessWidget {
                   ),
                 ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital da Restinga
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/restinga.png',
@@ -229,9 +277,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital da Restinga Pediatria
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/restingap.png',
@@ -252,9 +306,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital Santo Antônio
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/santo_antonio.png',
@@ -275,9 +335,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
-                    SizedBox(height: 10.0),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
+                SizedBox(height: 10.0),
                 // Hospital Santa Casa
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/santa_casa.png',
@@ -298,9 +364,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital São Lucas - SUS
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/sao_lucas.png',
@@ -321,32 +393,44 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Hospital São Lucas - Pediatria SUS
-                    new Row(
+                new InkWell(
+                child: new Row(
+                  children: <Widget>[
+                    new FadeInImage.assetNetwork(
+                        placeholder: 'assets/hospitais/sao_lucasp.png',
+                        image: '',
+                        fit: BoxFit.cover,
+                        width: 95.0,
+                        height: 95.0
+                    ),
+                    new Column(
+                      crossAxisAlignment:CrossAxisAlignment.start,
                       children: <Widget>[
-                        new FadeInImage.assetNetwork(
-                            placeholder: 'assets/hospitais/sao_lucasp.png',
-                            image: '',
-                            fit: BoxFit.cover,
-                            width: 95.0,
-                            height: 95.0
-                        ),
-                        new Column(
-                          crossAxisAlignment:CrossAxisAlignment.start,
-                          children: <Widget>[
-                            new AutoSizeText(' São Lucas - PEDIATRIA SUS',
-                              style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
-                            new AutoSizeText(' Av. Ipiranga, 6690 \n Jardim Botânico, Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
-                            new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                            new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
-                          ],
-                        ),
+                        new AutoSizeText(' São Lucas - PEDIATRIA SUS',
+                          style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
+                        new AutoSizeText(' Av. Ipiranga, 6690 \n Jardim Botânico, Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
+                        new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                        new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),),
                       ],
                     ),
+                  ],
+                ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento Bom Jesus
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/bomjesus.png',
@@ -367,9 +451,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento Bom Jesus Pediatria
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/bomjesusp.png',
@@ -390,9 +480,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento da Cruzeiro do Sul
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/cruzeiro.png',
@@ -413,9 +509,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento da Cruzeiro do Sul Pediatria
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/cruzeirop.png',
@@ -436,9 +538,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento da Lomba do Pinheiro
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/lomba.png',
@@ -459,9 +567,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento da Lomba do Pinheiro Pediatria
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/lombap.png',
@@ -482,9 +596,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento Moacyr Scliar
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/moacyr.png',
@@ -505,9 +625,15 @@ class HospitaisList extends StatelessWidget {
                     ),
                   ],
                 ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                ),
                 SizedBox(height: 10.0),
                 // Unidade Pronto Atendimento Moacyr Scliar Pediatria
-                new Row(
+                new InkWell(
+                child: new Row(
                   children: <Widget>[
                     new FadeInImage.assetNetwork(
                         placeholder: 'assets/hospitais/moacyrp.png',
@@ -527,6 +653,11 @@ class HospitaisList extends StatelessWidget {
                       ],
                     ),
                   ],
+                ),
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.blue,
+                  onTap: ()  => MapsLauncher
+                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
                 ),
                 SizedBox(height: 10.0),
           ]

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_infantil.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_coracao.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_coracao_infantil.dart';
 import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
 
 class CoracaoPage extends StatelessWidget {
@@ -41,7 +43,7 @@ class CoracaoPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new HospitaisList(),
+                    builder: (context) => new AtendeCoracao(),
                   ),
                 );
               },
@@ -75,7 +77,7 @@ class CoracaoPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaInfantil(),
+                    builder: (context) => new AtendeCoracaoInfantil(),
                   ),
                 );
               },
