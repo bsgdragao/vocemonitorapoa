@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_adulto.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_infantil.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_mancha.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_manchas_infantil.dart';
 
 class ManchasPage extends StatelessWidget {
   @override
@@ -41,7 +43,7 @@ class ManchasPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaAdulto(),
+                    builder: (context) => new AtendeManchas(),
                   ),
                 );
               },
@@ -75,7 +77,7 @@ class ManchasPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaInfantil(),
+                    builder: (context) => new AtendeManchasInfantil(),
                   ),
                 );
               },

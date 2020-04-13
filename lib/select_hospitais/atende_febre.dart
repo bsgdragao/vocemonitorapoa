@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
 
-class AtendeCoracaoInfantil extends StatelessWidget {
+class AtendeFebre extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

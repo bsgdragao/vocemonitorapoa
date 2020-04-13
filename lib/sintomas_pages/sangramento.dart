@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_adulto.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_infantil.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_sangramento.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_sangramento_infantil.dart';
 
 class SangramentoPage extends StatelessWidget {
   @override
@@ -41,7 +43,7 @@ class SangramentoPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaAdulto(),
+                    builder: (context) => new AtendeSangramento(),
                   ),
                 );
               },
@@ -75,7 +77,7 @@ class SangramentoPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaInfantil(),
+                    builder: (context) => new AtendeSangramentoInfantil(),
                   ),
                 );
               },

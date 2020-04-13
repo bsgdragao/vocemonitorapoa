@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_dor_barriga_infantil.dart';
+import 'package:vocemonitorapoa/select_hospitais/atende_barriga.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_adulto.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_infantil.dart';
 
@@ -41,7 +43,7 @@ class DorDeBarrigaPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaAdulto(),
+                    builder: (context) => new AtendeDorBarriga(),
                   ),
                 );
               },
@@ -75,7 +77,7 @@ class DorDeBarrigaPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => new AtendeColunaInfantil(),
+                    builder: (context) => new AtendeDorBarrigaInfantil(),
                   ),
                 );
               },
