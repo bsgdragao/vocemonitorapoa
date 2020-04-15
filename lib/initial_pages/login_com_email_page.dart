@@ -204,14 +204,18 @@ class _EmailLoginState extends State<EmailLogin> {
   List<Widget> builInputs(){
     return[
       new TextFormField(
-        decoration: new InputDecoration(labelText: 'E-mail'),
+        decoration: new InputDecoration(labelText: 'E-mail', border: new OutlineInputBorder(
+        borderRadius: new BorderRadius.circular(5.0),
+    borderSide: new BorderSide(),),),
         validator: (value) => value.isEmpty ? 'Email não pode ser em branco' : null,
         onSaved: (value) => _email = value,
       ),
       SizedBox(height:14.0),
       new TextFormField(
         obscureText: true,
-        decoration: new InputDecoration(labelText: 'Senha' ),
+        decoration: new InputDecoration(labelText: 'Senha', border: new OutlineInputBorder(
+    borderRadius: new BorderRadius.circular(5.0),
+    borderSide: new BorderSide(),), ),
         validator: (value) => value.isEmpty ? 'Senha não pode ser em branco, minimo 6 caracteres.' : null,
         onSaved: (value) => _password = value,
 

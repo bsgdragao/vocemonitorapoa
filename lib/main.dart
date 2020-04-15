@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:vocemonitorapoa/initial_pages/login_com_facebook_page.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_email_page.dart';
+import 'package:vocemonitorapoa/initial_pages/login_com_facebook_page.dart';
 import 'package:vocemonitorapoa/initial_pages/perfil_com_google_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -65,8 +66,7 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
     );
     Navigator.push(
       context,
-      new MaterialPageRoute(
-        builder: (context) => new PerfilGoogle(detailsUser: details),
+      MaterialPageRoute(builder: (context) => new PerfilGoogle(detailsUser: details),
       ),
     );
     return userDetails;
@@ -131,9 +131,9 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
                             ),
                           ],),
                         onPressed: () {
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) =>
-                            new LoginComFacebook(),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  LoginComFacebook(),
                             ),
                           );
                         },
@@ -162,8 +162,7 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            new MaterialPageRoute(
-                              builder: (context) => new EmailLogin(auth: new Auth()),
+                            MaterialPageRoute(builder: (context) =>  new EmailLogin(auth: new Auth()),
                             ),
                           );
                         },

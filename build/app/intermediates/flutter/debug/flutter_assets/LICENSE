@@ -4824,6 +4824,7 @@ firebase_auth_platform_interface
 firebase_auth_web
 firebase_core
 firebase_core_platform_interface
+firebase_database
 shared_preferences
 shared_preferences_platform_interface
 url_launcher

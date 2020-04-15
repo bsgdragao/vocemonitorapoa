@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:vocemonitorapoa/hospitais_pages/hospital_cristo_redentor.dart';
+import 'package:vocemonitorapoa/hospitais_pages/ic_fuc.dart';
 
 
 class HospitaisList extends StatelessWidget {
@@ -47,8 +49,10 @@ class HospitaisList extends StatelessWidget {
                 ),
                   borderRadius: BorderRadius.circular(20),
                   splashColor: Colors.blue,
-                  onTap: ()  => MapsLauncher
-                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                  onTap:(){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => InstitutoCardiologia(),),);
+                  }
                 ),
                 SizedBox(height: 10.0),
                 // Hospital de clinicas
@@ -134,8 +138,12 @@ class HospitaisList extends StatelessWidget {
                 ),
                   borderRadius: BorderRadius.circular(20),
                   splashColor: Colors.blue,
-                  onTap: ()  => MapsLauncher
-                      .launchQuery('Rua Domingos Rubbo, 20, Cristo Redentor, Porto Alegre'),
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HospitalCristo()),
+                    );
+                  }
                 ),
                 SizedBox(height: 10.0),
                 // Hospital Hospital Materno Infantil Presidente Vargas

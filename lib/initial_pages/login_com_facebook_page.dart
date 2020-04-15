@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:vocemonitorapoa/main.dart';
 import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
-
-
 
 class LoginComFacebook extends StatefulWidget {
   @override
@@ -44,8 +43,7 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                 Icons.exit_to_app,
                 color: Colors.white,
               ),
-              onPressed: () => facebookLogin.isLoggedIn
-                  .then((isLoggedIn) => isLoggedIn ? _logout() : {}),
+              onPressed: () => _logout() ,
             ),
           ],
         ),
@@ -139,10 +137,9 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     ),
                   ],),
                 onPressed: () {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                          builder: (context) => new TriagemPage(),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => new TriagemPage(),
                         ),
                  );
                 },
@@ -170,7 +167,7 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     SizedBox(width:20.0),
                     Text(
                       'Avaliar tempo de espera',
-                      style: TextStyle(color: Colors.black,fontSize: 18.0),
+                      style: TextStyle(color: Colors.blue[900],fontSize: 18.0),
                     ),
                   ],),
                 onPressed: () {
@@ -204,6 +201,12 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
   _logout() async {
     await facebookLogin.logOut();
     onLoginStatusChanged(false);
-    print("Deslogado");
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>  new MyApp(),
+      ),
+      );
+    });
   }
 }

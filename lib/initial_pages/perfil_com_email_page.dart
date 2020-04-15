@@ -132,14 +132,13 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
                         SizedBox(width:20.0),
                         Text(
                           'Avaliar tempo de espera',
-                          style: TextStyle(color: Colors.black,fontSize: 18.0),
+                          style: TextStyle(color: Colors.blue[900],fontSize: 18.0),
                         ),
                       ],),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        new MaterialPageRoute(
-                          builder: (context) => new HospitaisList(),
+                        MaterialPageRoute(builder: (context) =>  new HospitaisList(),
                         ),
                       );
                     },
