@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 import '../main.dart';
@@ -9,23 +10,24 @@ import '../main.dart';
 
 // Bloco da página de Perfil
 class PerfilComEmail extends StatefulWidget {
-
-  final String email;
-  const PerfilComEmail({Key key, @required this.email}) : super(key: key);
-
-
-
   @override
   _PerfilComEmailState createState() => _PerfilComEmailState();
 }
 
 class _PerfilComEmailState extends State<PerfilComEmail> {
+  String _email;
 
-
+  Future<void> _setEmail() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+     _email = prefs.get('userEmail');
+     print(_email);
+  }
+  @override
   initState() {
     // TODO: implement initState
+    print('Passou no Init');
+    _setEmail();
     super.initState();
-    print(widget.email);
   }
 
   // Função para logout
@@ -74,13 +76,13 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
             ),
             SizedBox(height:10.0),
             Text(
-              "Logado com o e-mail:",
+              "Login só com e-mail:",
               style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 20.0),
             ),
             SizedBox(height:10.0),
             Text(
-              "E-mail : " + widget.email,
-              style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blueAccent,fontSize: 20.0),
+              '$_email' ,
+              style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blueAccent,fontSize: 26.0),
             ),
             SizedBox(height:30.0),
             Container(

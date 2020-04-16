@@ -1,6 +1,11 @@
+import 'dart:io';
+
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FormSaveData extends StatelessWidget {
   final int idHospital;
@@ -8,9 +13,67 @@ class FormSaveData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String comentario;
 
-    return MaterialApp(
+    final databaseReference = FirebaseDatabase.instance.reference();
+    _MyStatefulWidgetState dropState = new _MyStatefulWidgetState();
+
+    int _reference;
+    DateTime _date;
+    String _email;
+    String _espera;
+    String _comentario;
+
+    Future<void> atualizaVariaveis() async {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      _reference = idHospital;
+      print(_reference);
+      _date = DateTime.now();
+      print(_date);
+      _email = prefs.get('userEmail');
+      print(_email);
+      _espera = dropState.dropdownValue;
+      print(_espera);
+      print(_comentario);
+    }
+
+    void sendRecord() {
+      databaseReference.child("$_reference").set({
+        'Data': '$_date',
+        'E-mail': '$_email',
+        'Espera' : '$_espera',
+        'Comentario' : '$_comentario',
+      });
+    }
+
+
+    showAlert(BuildContext context){
+      // configura o button
+      Widget okButton = FlatButton(
+        child: Text("OK"),
+        onPressed: () {
+          Navigator.pop(context, true);
+              Navigator.pop(context);
+        },
+      );
+      // configura o  AlertDialog
+      AlertDialog alerta = AlertDialog(
+        title: Text("Obrigado por participar!"),
+        content: Text("A sua ajuda é fundamental para manter o App funcionando! "
+            "Mantenha o tempo de espera atualizado e se puder comente. E mais uma vez obrigado por ajudar!"),
+        actions: [
+            okButton,
+        ],
+      );
+      // exibe o dialog
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alerta;
+        },
+      );
+    }
+
+     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
         title: Text("Avalie o tempo de espera:"),
@@ -34,6 +97,7 @@ class FormSaveData extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 new TextFormField(
+                  textAlign: TextAlign.left,
                   textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
                   maxLines: 3,
@@ -44,7 +108,18 @@ class FormSaveData extends StatelessWidget {
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),),),
-                  onSaved: (value) => comentario = value,
+                  onSaved: (value) => _comentario = value,
+                ),
+                new RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0)),
+                  color: Colors.blue[700],
+                  child: new Text('    Enviar    ', style: new TextStyle(color: Colors.white,fontSize: 20.0),),
+                  onPressed:( ){
+                    atualizaVariaveis();
+                    sendRecord();
+                    showAlert(context);
+                  },
                 ),
               ],
             ),
@@ -95,3 +170,4 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
+

@@ -58,7 +58,7 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
                             icon: new Icon(FontAwesomeIcons.handPointUp, size: 70.0),
                             onPressed: (){
                               Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => FormSaveData(),),);
+                                  MaterialPageRoute(builder: (context) => FormSaveData(idHospital: 1),),);
                             },
                           )
                       ),

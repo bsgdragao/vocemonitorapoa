@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/initial_pages/perfil_com_email_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
 import 'package:vocemonitorapoa/tasks/status_login.dart';
-import 'package:vocemonitorapoa/user.dart';
 
 class EmailLogin extends StatefulWidget {
   EmailLogin({this.auth});
@@ -25,6 +24,7 @@ class _EmailLoginState extends State<EmailLogin> {
 
   // Chave de definição do formulário
   final formKey = new GlobalKey<FormState>();
+
   // Variáveis do formulário
   String _email;
   String _password;
@@ -128,48 +128,47 @@ class _EmailLoginState extends State<EmailLogin> {
 
     void autoLogIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
+
     final String userId = await widget.auth.signInWithEmailAndPassword(
         _email, _password);
 
-    if (userId != null) {
+    if (userId != null || prefs.get('userEmail') != null) {
       setState(() {
         isLoggedIn = true;
-        name = userId;
-        print('Abriu no if do autoLogIn');
-        var user = FirebaseAuth.instance.currentUser();
-        UserLogged userLogged = new UserLogged();
-        var _id = userId;
-        //print(_id);
-        userLogged.saveUser(_id, 'Anônimo', _email);
+        print('Abriu no if do autoLogIn com ID: '+ userId);
+        prefs.setString('userEmail', _email);
+        prefs.setString('userId', userId);
+        prefs.setString('userName', 'Anônimo');
+        print('Email passou como ' + _email);
         Navigator.push(context,
-          MaterialPageRoute(builder: (context) => PerfilComEmail(email: _email,), ),);
+          MaterialPageRoute(builder: (context) => PerfilComEmail(), ),);
 
       });
       return;
     }
   }
 
-  Future<Null> logout() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('username', null);
-
-    setState(() {
-      name = '';
-      isLoggedIn = false;
-    });
-  }
-
-  Future<Null> loginUser() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('username', nameController.text);
-
-    setState(() {
-      name = nameController.text;
-      isLoggedIn = true;
-    });
-
-    nameController.clear();
-  }
+//  Future<Null> logout() async {
+//    final SharedPreferences prefs = await SharedPreferences.getInstance();
+//    prefs.setString('username', null);
+//
+//    setState(() {
+//      name = '';
+//      isLoggedIn = false;
+//    });
+//  }
+//
+//  Future<Null> loginUser() async {
+//    final SharedPreferences prefs = await SharedPreferences.getInstance();
+//    prefs.setString('username', nameController.text);
+//
+//    setState(() {
+//      name = nameController.text;
+//      isLoggedIn = true;
+//    });
+//
+//    nameController.clear();
+//  }
 
 
 
@@ -204,9 +203,9 @@ class _EmailLoginState extends State<EmailLogin> {
   List<Widget> builInputs(){
     return[
       new TextFormField(
-        decoration: new InputDecoration(labelText: 'E-mail', border: new OutlineInputBorder(
-        borderRadius: new BorderRadius.circular(5.0),
-    borderSide: new BorderSide(),),),
+        decoration: new InputDecoration(labelText: 'E-mail',  border: new OutlineInputBorder(
+          borderRadius: new BorderRadius.circular(30.0),
+          borderSide: new BorderSide(),),),
         validator: (value) => value.isEmpty ? 'Email não pode ser em branco' : null,
         onSaved: (value) => _email = value,
       ),
@@ -214,7 +213,7 @@ class _EmailLoginState extends State<EmailLogin> {
       new TextFormField(
         obscureText: true,
         decoration: new InputDecoration(labelText: 'Senha', border: new OutlineInputBorder(
-    borderRadius: new BorderRadius.circular(5.0),
+    borderRadius: new BorderRadius.circular(30.0),
     borderSide: new BorderSide(),), ),
         validator: (value) => value.isEmpty ? 'Senha não pode ser em branco, minimo 6 caracteres.' : null,
         onSaved: (value) => _password = value,
@@ -228,7 +227,10 @@ class _EmailLoginState extends State<EmailLogin> {
       return[
         SizedBox(height:40.0),
         new RaisedButton(
-          child: new Text('Login', style: new TextStyle(fontSize: 20.0),),
+          shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(30.0)),
+          color: Colors.blue[700],
+          child: new Text('Login', style: new TextStyle(fontSize: 20.0, color: Colors.white),),
           onPressed: validateAndSubmitLogin,
 
         ),
@@ -238,10 +240,15 @@ class _EmailLoginState extends State<EmailLogin> {
       ];
     }else{
       return[
+        SizedBox(height:40.0),
         new RaisedButton(
-          child: new Text('Criar conta', style: new TextStyle(fontSize: 20.0),),
+          shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(30.0)),
+          color: Colors.blue[700],
+          child: new Text('Criar conta', style: new TextStyle(fontSize: 20.0, color: Colors.white),),
           onPressed: validateAndSubmitLogin,
         ),
+        SizedBox(height:10.0),
         new FlatButton(onPressed: moveToLogin,
             child: Text('Tem uma conta? Faça Login.', style: TextStyle(fontSize: 20.0) ))
       ];

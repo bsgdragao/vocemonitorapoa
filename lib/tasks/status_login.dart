@@ -44,7 +44,7 @@ class _StatusLoginState extends State<StatusLogin> {
       case AuthStatus.logado:
         final Future<String> userId = widget.auth.signInWithEmailAndPassword(
             _email, _password);
-        return new PerfilComEmail(email: _email);
+        //return new PerfilComEmail();
     }
   }
 }
