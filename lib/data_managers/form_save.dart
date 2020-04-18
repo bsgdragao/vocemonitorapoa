@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -13,38 +11,71 @@ class FormSaveData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Instancia do Database Firebase
+    final DatabaseReference _database = FirebaseDatabase.instance.reference();
 
-    final databaseReference = FirebaseDatabase.instance.reference();
-    _MyStatefulWidgetState dropState = new _MyStatefulWidgetState();
+    //Controle para salvar o comentário
+    final comentarioSave = TextEditingController();
 
+    //Variaveis
     int _reference;
     DateTime _date;
     String _email;
-    String _espera;
+    String _esperaT;
     String _comentario;
 
+    // Lê o tempo salvo n o DrpDown
+    void readTime() async {
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'tempoEspera';
+      final value = prefs.getString(key) ?? null;
+      _esperaT = value;
+      print('Valor lido no Shared para espera: $value');
+      print('Valor salvo em espera: $_esperaT');
+    }
+
+    //Salva o comentário do form
+    void saveComentario(var comentario) async {
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'comentario';
+      final value = comentario;
+      prefs.setString(key, value);
+      print('Valor do comentario salvo no Shared $value');
+    }
+
+    // Lê o comentário do form
+    void readComentario() async {
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'comentario';
+      final value = prefs.getString(key) ?? null;
+      _comentario = value;
+      print('Valor lido no Shared para espera: $value');
+      print('Valor salvo em espera: $_comentario');
+    }
+
+    // Função que garante que os datos são os atualizados
     Future<void> atualizaVariaveis() async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
+
       _reference = idHospital;
-      print(_reference);
+      print("$_reference essa é a referência");
       _date = DateTime.now();
       print(_date);
       _email = prefs.get('userEmail');
       print(_email);
-      _espera = dropState.dropdownValue;
-      print(_espera);
+      print(_esperaT);
       print(_comentario);
     }
 
+
     void sendRecord() {
-      databaseReference.child("$_reference").set({
+     _database.child("$_reference").set({
         'Data': '$_date',
         'E-mail': '$_email',
-        'Espera' : '$_espera',
-        'Comentario' : '$_comentario',
+        'Espera' : '$_esperaT',
+        'Comentario' : '$_comentario'
       });
     }
-
 
     showAlert(BuildContext context){
       // configura o button
@@ -73,6 +104,11 @@ class FormSaveData extends StatelessWidget {
       );
     }
 
+
+    // Definição para o form Key
+    final _formKey = GlobalKey();
+    final form = _formKey.currentState;
+
      return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -96,28 +132,42 @@ class FormSaveData extends StatelessWidget {
                   child: Text('Como está o atendimento ai?', style: TextStyle(color: Colors.blue, fontSize: 20.0),),
                 ),
                 SizedBox(height: 10.0),
-                new TextFormField(
-                  textAlign: TextAlign.left,
-                  textInputAction: TextInputAction.newline,
-                  keyboardType: TextInputType.multiline,
-                  maxLines: 3,
-                  maxLength: 200,
-                  textAlignVertical: TextAlignVertical.top,
-                  decoration: new InputDecoration(labelText: 'Digite aqui seu comentário:',
-                    //contentPadding: new EdgeInsets.symmetric(vertical: 50.0, horizontal: 10.0),
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(5.0),
-                      borderSide: new BorderSide(),),),
-                  onSaved: (value) => _comentario = value,
-                ),
+                Builder(
+                  builder: (context) => Form(
+                   key: _formKey,
+                   child: new TextFormField(
+                     textAlign: TextAlign.left,
+                     textInputAction: TextInputAction.newline,
+                     keyboardType: TextInputType.multiline,
+                     maxLines: 3,
+                     maxLength: 200,
+                     textAlignVertical: TextAlignVertical.top,
+                     decoration: new InputDecoration(labelText: 'Digite aqui seu comentário:',
+                       //contentPadding: new EdgeInsets.symmetric(vertical: 50.0, horizontal: 10.0),
+                       border: new OutlineInputBorder(
+                         borderRadius: new BorderRadius.circular(5.0),
+                         borderSide: new BorderSide(),),),
+                     onChanged: (value) {
+                       saveComentario(value);
+                       // Ver a variavel sendo atualizada em tempo real
+                       //print('Comentario digitado no Shared $value');
+                     },
+                     ),
+                    ),
+                  ),
                 new RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(30.0)),
                   color: Colors.blue[700],
                   child: new Text('    Enviar    ', style: new TextStyle(color: Colors.white,fontSize: 20.0),),
                   onPressed:( ){
-                    atualizaVariaveis();
-                    sendRecord();
+
+                      print("variavel comentario após o save: $_comentario \n\n");
+                      readTime();
+                      readComentario();
+                      atualizaVariaveis();
+                      sendRecord();
+
                     showAlert(context);
                   },
                 ),
@@ -128,8 +178,13 @@ class FormSaveData extends StatelessWidget {
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
 
+class SaveTime{
+  String time;
+}
 
 class MyStatefulWidget extends StatefulWidget {
   MyStatefulWidget({Key key}) : super(key: key);
@@ -139,9 +194,16 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  String dropdownValue = '15 Min';
+  String dropdownValue = 'TEMPO';
 
-  @override
+  _saveTime(var time) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'tempoEspera';
+    final value = time;
+    prefs.setString(key, value);
+    print('Valor do tempo no Shared $value');
+  }
+   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
@@ -154,13 +216,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         color: Colors.blue[700],
       ),
       onChanged: (String newValue) {
-        setState(() {
+                setState(() {
           dropdownValue = newValue;
+          _saveTime(newValue);
         });
+                print('DropDown no Change: $dropdownValue ');
       },
-      items: <String>['15 Min', '20 Min', '25 Min', '30 Min', '35 Min', '40 Min', '45  Min',
-      '50 Min', '55 Min', '1 Hora', '1H 30Min', '2H', '2H 30Min', '3H 00Min', '3H 30Min',
-      '4H', '4H 30MIN', '5H', '5H 30MIN', '6', '6H 30MIN', '7', '7H 30MIN', '8', '+ de 8H']
+      items: <String>['TEMPO', '15 Min', '20 Min', '25 Min', '30 Min', '35 Min', '40 Min', '45  Min',
+      '50 Min', '55 Min', '1 Hora', '1H 30Min', '2H', '2H 30Min', '3H', '3H 30Min',
+      '4H', '4H 30Min', '5H', '5H 30Min', '6', '6H 30Min', '7', '7H 30Min', '8', '+ de 8H']
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
@@ -169,5 +233,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       }).toList(),
     );
   }
+
+
 }
 

@@ -132,7 +132,7 @@ class _EmailLoginState extends State<EmailLogin> {
     final String userId = await widget.auth.signInWithEmailAndPassword(
         _email, _password);
 
-    if (userId != null || prefs.get('userEmail') != null) {
+      if (userId != null || prefs.get('userEmail') != null) {
       setState(() {
         isLoggedIn = true;
         print('Abriu no if do autoLogIn com ID: '+ userId);

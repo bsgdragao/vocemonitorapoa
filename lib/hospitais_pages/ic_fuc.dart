@@ -4,7 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:vocemonitorapoa/hospitais_pages/form_save.dart';
+import 'file:///C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/lib/data_managers/form_save.dart';
 
 
 class InstitutoCardiologia extends StatefulWidget {
@@ -20,7 +20,7 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Hospital Cristo Redentor "),
+          title: Text("Instituto de Cardiologia"),
         ),
         body: new Container(
           child: new Center(
@@ -63,7 +63,7 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
                           )
                       ),
                       SizedBox(height: 20.0),
-                      AutoSizeText("Informar tempo diferente", style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold),minFontSize: 20.0, ),
+                      AutoSizeText("Errado? Informe o tempo correto", style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold),minFontSize: 20.0, ),
                       SizedBox(height: 30.0),
                       AutoSizeText("Comentários:  \n\n Está horrivel hoje!!!!!", textAlign: TextAlign.left, style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold, ),minFontSize: 20.0, ),
 

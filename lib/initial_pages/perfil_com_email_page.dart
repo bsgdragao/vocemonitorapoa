@@ -19,8 +19,11 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
 
   Future<void> _setEmail() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-     _email = prefs.get('userEmail');
-     print(_email);
+     setState(() {
+       _email = prefs.get('userEmail');
+       print(_email);
+       (context as Element).reassemble();
+     });
   }
   @override
   initState() {
