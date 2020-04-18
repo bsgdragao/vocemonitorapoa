@@ -35,12 +35,10 @@ class _PerfilComEmailState extends State<PerfilComEmail> {
 
   // Função para logout
   Future<void> _signOut() async {
-    try {
-      await FirebaseAuth.instance.signOut();
-    } catch (e) {
-      print(e); // TODO: show dialog with error
-    }
-  }
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setString('userEmail', null);
+      preferences.clear();
+ }
 
   @override
   Widget build(BuildContext context) {

@@ -40,7 +40,8 @@ class FormSaveData extends StatelessWidget {
       final key = 'comentario';
       final value = comentario;
       prefs.setString(key, value);
-      print('Valor do comentario salvo no Shared $value');
+      // Gera log de gravação da variavel
+      //print('Valor do comentario salvo no Shared $value');
     }
 
     // Lê o comentário do form
@@ -69,11 +70,11 @@ class FormSaveData extends StatelessWidget {
 
 
     void sendRecord() {
-     _database.child("$_reference").set({
-        'Data': '$_date',
-        'E-mail': '$_email',
-        'Espera' : '$_esperaT',
-        'Comentario' : '$_comentario'
+     _database.child("1").set({
+        'Data': '23/07/2010',
+        'E-mail': 'teste@teste.com.br',
+        'Espera' : '1 H 30Min',
+        'Comentario' : 'Teste de conexão',
       });
     }
 
@@ -104,10 +105,47 @@ class FormSaveData extends StatelessWidget {
       );
     }
 
+    showAlertError(BuildContext context){
+      // configura o button
+      Widget okButton = FlatButton(
+        child: Text("OK"),
+        onPressed: () {
+          Navigator.pop(context, true);
 
-    // Definição para o form Key
-    final _formKey = GlobalKey();
-    final form = _formKey.currentState;
+        },
+      );
+      // configura o  AlertDialog
+      AlertDialog alerta = AlertDialog(
+        title: Text("Tempo é Obrigatório!"),
+        content: Text("Para participar informe corretamente o tempo de espera atual!"),
+        actions: [
+          okButton,
+        ],
+      );
+      // exibe o dialog
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alerta;
+        },
+      );
+    }
+
+    void valideDados(){
+      atualizaVariaveis();
+      if("TEMPO" != _esperaT ){
+        showAlertError(context);
+      }else{
+        print("variavel comentario após o save: $_comentario \n\n");
+        readTime();
+        readComentario();
+        sendRecord();
+        showAlert(context);
+      }
+    }
+
+
+
 
      return MaterialApp(
       home: Scaffold(
@@ -134,8 +172,7 @@ class FormSaveData extends StatelessWidget {
                 SizedBox(height: 10.0),
                 Builder(
                   builder: (context) => Form(
-                   key: _formKey,
-                   child: new TextFormField(
+                    child: new TextFormField(
                      textAlign: TextAlign.left,
                      textInputAction: TextInputAction.newline,
                      keyboardType: TextInputType.multiline,
@@ -161,14 +198,7 @@ class FormSaveData extends StatelessWidget {
                   color: Colors.blue[700],
                   child: new Text('    Enviar    ', style: new TextStyle(color: Colors.white,fontSize: 20.0),),
                   onPressed:( ){
-
-                      print("variavel comentario após o save: $_comentario \n\n");
-                      readTime();
-                      readComentario();
-                      atualizaVariaveis();
-                      sendRecord();
-
-                    showAlert(context);
+                      valideDados();
                   },
                 ),
               ],

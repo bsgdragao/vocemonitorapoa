@@ -32,14 +32,26 @@ class _EmailLoginState extends State<EmailLogin> {
 
   initState() {
     // TODO: implement initState
-    super.initState();
+    jaLogado();
     autoLogIn();
-      widget.auth.currentUser().then((userId) {
-        setState(() {
-          authStatus =
-          userId == null ? AuthStatus.naoLogado : AuthStatus.logado;
-        });
-      });
+    super.initState();
+
+//      widget.auth.currentUser().then((userId) {
+//        setState(() {
+//          authStatus =
+//          userId == null ? AuthStatus.naoLogado : AuthStatus.logado;
+//        });
+//      });
+    }
+    // Persistencia de dados
+    Future<void> jaLogado() async {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      if(prefs.get('userEmail') != null){
+        Navigator.push(context,
+          MaterialPageRoute(builder: (context) => PerfilComEmail(), ),);
+      }
+
     }
 
   // Validação se os dados de formulário foram preeenchidos
@@ -98,6 +110,7 @@ class _EmailLoginState extends State<EmailLogin> {
               child: new Text("Fechar"),
               onPressed: () {
                 Navigator.of(context).pop();
+
               },
             ),
           ],
@@ -121,7 +134,7 @@ class _EmailLoginState extends State<EmailLogin> {
     });
   }
 
-  //Bloco de persistência do Login
+  //Bloco de controle do Login
   TextEditingController nameController = TextEditingController();
   bool isLoggedIn = false;
   String name = '';
@@ -147,30 +160,6 @@ class _EmailLoginState extends State<EmailLogin> {
       return;
     }
   }
-
-//  Future<Null> logout() async {
-//    final SharedPreferences prefs = await SharedPreferences.getInstance();
-//    prefs.setString('username', null);
-//
-//    setState(() {
-//      name = '';
-//      isLoggedIn = false;
-//    });
-//  }
-//
-//  Future<Null> loginUser() async {
-//    final SharedPreferences prefs = await SharedPreferences.getInstance();
-//    prefs.setString('username', nameController.text);
-//
-//    setState(() {
-//      name = nameController.text;
-//      isLoggedIn = true;
-//    });
-//
-//    nameController.clear();
-//  }
-
-
 
   // Bloco de tela
   @override
