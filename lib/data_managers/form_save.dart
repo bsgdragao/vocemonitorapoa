@@ -23,6 +23,7 @@ class FormSaveData extends StatelessWidget {
     String _email;
     String _esperaT;
     String _comentario;
+    bool confirmSend = true;
 
     // Lê o tempo salvo n o DrpDown
     void readTime() async {
@@ -50,17 +51,18 @@ class FormSaveData extends StatelessWidget {
       final key = 'comentario';
       final value = prefs.getString(key) ?? null;
       _comentario = value;
-      print('Valor lido no Shared para espera: $value');
-      print('Valor salvo em espera: $_comentario');
+      print('Valor lido no Shared para cometário: $value');
+      print('Valor salvo no _comentario: $_comentario');
     }
 
-    // Função que garante que os datos são os atualizados
+    // Função que garante que os dados são os atualizados
     Future<void> atualizaVariaveis() async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
 
       _reference = idHospital;
       print("$_reference essa é a referência");
-      _date = DateTime.now();
+      DateTime tempoUtc = DateTime.now();
+      _date = tempoUtc.toLocal();
       print(_date);
       _email = prefs.get('userEmail');
       print(_email);
@@ -68,21 +70,24 @@ class FormSaveData extends StatelessWidget {
       print(_comentario);
     }
 
-
-    void sendRecord() {
-     _database.child("1").set({
-        'Data': '23/07/2010',
-        'E-mail': 'teste@teste.com.br',
-        'Espera' : '1 H 30Min',
-        'Comentario' : 'Teste de conexão',
-      });
+    // Limpeza do tempo e comentario do Shared
+    void clearShared() async {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setString('tempoEspera', null);
+      _esperaT = preferences.get('tempoEspera');
+      preferences.setString('comentario', null);
+      _comentario = preferences.get('cometario');
+      // Imprimi as saidas para validação
+      print('Tempo na saida é: $_esperaT \nComentario na saida é: $_comentario');
     }
 
+    // Alert de agradecimento
     showAlert(BuildContext context){
       // configura o button
       Widget okButton = FlatButton(
         child: Text("OK"),
         onPressed: () {
+          clearShared();
           Navigator.pop(context, true);
               Navigator.pop(context);
         },
@@ -105,6 +110,7 @@ class FormSaveData extends StatelessWidget {
       );
     }
 
+    // Alert de erro ao selecionar tempo
     showAlertError(BuildContext context){
       // configura o button
       Widget okButton = FlatButton(
@@ -131,21 +137,82 @@ class FormSaveData extends StatelessWidget {
       );
     }
 
-    void valideDados(){
-      atualizaVariaveis();
-      if("TEMPO" != _esperaT ){
-        showAlertError(context);
-      }else{
-        print("variavel comentario após o save: $_comentario \n\n");
-        readTime();
-        readComentario();
-        sendRecord();
+    // Alerta de erro ao sdalvar os dados na cloud
+    showAlertErrorSend(BuildContext context){
+      // configura o button
+      Widget okButton = FlatButton(
+        child: Text("OK"),
+        onPressed: () {
+          Navigator.pop(context, true);
+
+        },
+      );
+      // configura o  AlertDialog
+      AlertDialog alerta = AlertDialog(
+        title: Text("Erro ao enviar!"),
+        content: Text("Pode ser problemas com a sua internet ou nossa rede! Tente novamente."),
+        actions: [
+          okButton,
+        ],
+      );
+      // exibe o dialog
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alerta;
+        },
+      );
+    }
+
+    // Envia alerta se o comentario foi enviado
+    void enviaMensagem(){
+      if(confirmSend == true){
         showAlert(context);
+      }else{
+        showAlertErrorSend(context);
       }
     }
 
+    // Envia o comentario para o Firebase
+    void sendRecord() {
+      //Garante o formato dos dados para envio
+      print('Entrou no sendRecord');
+      String ref = idHospital.toString();
+      String aData = _date.toString();
+      String oEmail = _email;
+      String oTempo = _esperaT;
+      String oComentario = _comentario;
+      print('Referencia: $ref \n Data: $aData \n Email: $oEmail \n O tempo: $oTempo \n O comentario: $oComentario');
+        try{
+          _database.child("$ref").child("10").set({
+            'Data': aData,
+            'E-mail': oEmail,
+            'Espera' : oTempo,
+            'Comentario' : oComentario,
+          });
 
+        }on Exception catch(exception){
+          print('Exceção ao salvar dados + $exception');
+          confirmSend = false;
+        }catch(erro){
+          print('Erro ao salvar dados + $erro');
+          confirmSend = false;
+        }
+    }
 
+    Future<void> valideDados() async {
+      String tempo;
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      tempo = prefs.getString('tempoEspera');
+
+      if( tempo != "TEMPO" && tempo != null ){
+        sendRecord();
+        enviaMensagem();
+
+      }else{
+        showAlertError(context);
+      }
+    }
 
      return MaterialApp(
       home: Scaffold(
@@ -198,7 +265,10 @@ class FormSaveData extends StatelessWidget {
                   color: Colors.blue[700],
                   child: new Text('    Enviar    ', style: new TextStyle(color: Colors.white,fontSize: 20.0),),
                   onPressed:( ){
-                      valideDados();
+                    readTime();
+                    readComentario();
+                    atualizaVariaveis();
+                    valideDados();
                   },
                 ),
               ],
@@ -252,7 +322,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         });
                 print('DropDown no Change: $dropdownValue ');
       },
-      items: <String>['TEMPO', '15 Min', '20 Min', '25 Min', '30 Min', '35 Min', '40 Min', '45  Min',
+      items: <String>['TEMPO', '15 Min', '20 Min', '25 Min', '30 Min', '35 Min', '40 Min', '45 Min',
       '50 Min', '55 Min', '1 Hora', '1H 30Min', '2H', '2H 30Min', '3H', '3H 30Min',
       '4H', '4H 30Min', '5H', '5H 30Min', '6', '6H 30Min', '7', '7H 30Min', '8', '+ de 8H']
           .map<DropdownMenuItem<String>>((String value) {
