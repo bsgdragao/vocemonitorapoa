@@ -181,20 +181,33 @@ class FormSaveData extends StatelessWidget {
 
     // Envia o comentario para o Firebase
     void sendRecord() {
-      //Garante o formato dos dados para envio
+      //Garante o formato dos dados para envio como String e keys limpos
       print('Entrou no sendRecord');
+      // Referencia do hospital para String
       String ref = idHospital.toString();
+      // DateTime para string
       String aData = _date.toString();
+      // Limpeza dos dos milisegundos do date time
       String result = aData.substring(0, aData.indexOf('.'));
+      // Retorno do valor da String limpo
       aData = result;
+      // Email do Usuário
       String oEmail = _email;
+      // Remoção do @ do email para uso como Key
       String emailKey = _email.replaceAll('@', '');
+      // Remoção doponto do email para uso como Key
       emailKey = emailKey.replaceAll('.', '');
+      // Tempo de espera informado pelo User
       String oTempo = _esperaT;
+      // Comentario do usuario
       String oComentario = _comentario;
-
+      // Imprime as variaveis enviadas.
       print('Referencia: $ref \n Data: $aData \n Email: $oEmail \n Email Key: $emailKey \n O tempo: $oTempo \n O comentario: $oComentario \n No Send record o Bool confirm entrou $confirmSend');
-
+          // Envia somente o tempo para ser sobrescrito do Hospital
+          _database.child("$ref").set({
+            'Espera': oTempo,
+          });
+          // Envia todo o formulário para o registro do usuário.
           _database.child("$ref").child(emailKey).child(aData).set({
             'Data': aData,
             'E-mail': oEmail,
@@ -204,7 +217,6 @@ class FormSaveData extends StatelessWidget {
             print('Erro ao enviar avaliação: $e');
             confirmSend = false;
             print('O bool confirm foi trocado no catch exception para: $confirmSend');
-            
           }).then((value) => enviaMensagem(confirmSend));
     }
 
@@ -235,7 +247,8 @@ class FormSaveData extends StatelessWidget {
                 SizedBox(height: 30.0),
                 new Container(
                   alignment: Alignment.centerLeft,
-                  child: Text('Qual o tempo de atendimento atual?',  style: TextStyle(color: Colors.blue, fontSize: 20.0),),
+                  child: Text('Qual o tempo de atendimento atual?',
+                    textAlign: TextAlign.center,  style: TextStyle(color: Colors.blue, fontSize: 20.0),),
                 ),
                 SizedBox(height: 10.0),
                 MyStatefulWidget(),
@@ -273,14 +286,17 @@ class FormSaveData extends StatelessWidget {
                   color: Colors.blue[700],
                   child: new Text('    Enviar    ', style: new TextStyle(color: Colors.white,fontSize: 20.0),),
                   onPressed:( ){
-
                     readTime();
                     readComentario();
                     atualizaVariaveis();
                     valideDados();
-
-
                   },
+                ),
+                SizedBox(height: 10.0),
+                new Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Ajude a comunidade! \n Só informe um tempo menor se realmente foi atendido em menos tempo do que o tempo de espera informado.',
+                    textAlign: TextAlign.center,  style: TextStyle(color: Colors.blue[700], fontSize: 20.0),),
                 ),
               ],
             ),

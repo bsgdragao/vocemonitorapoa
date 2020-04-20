@@ -63,7 +63,14 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
                           )
                       ),
                       SizedBox(height: 20.0),
-                      AutoSizeText("Errado? Informe o tempo correto", style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold),minFontSize: 20.0, ),
+                      new FlatButton(onPressed: (){
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => FormSaveData(idHospital: 1),),);
+                      },
+                          child: AutoSizeText('Está esperando a mais tempo? '
+                              '\nFoi atendido em um tempo menor?'
+                              '\nInforme o tempo correto!',
+                            textAlign: TextAlign.center, style: TextStyle(color: Colors.blue[600],fontWeight: FontWeight.bold),minFontSize: 20.0,),),
                       SizedBox(height: 30.0),
                       AutoSizeText("Comentários:  \n\n Está horrivel hoje!!!!!", textAlign: TextAlign.left, style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold, ),minFontSize: 20.0, ),
 
