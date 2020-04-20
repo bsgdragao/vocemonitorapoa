@@ -3,7 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+
 
 class FormSaveData extends StatelessWidget {
   final int idHospital;
@@ -11,6 +14,7 @@ class FormSaveData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     //Instancia do Database Firebase
     final DatabaseReference _database = FirebaseDatabase.instance.reference();
 
@@ -23,9 +27,10 @@ class FormSaveData extends StatelessWidget {
     String _email;
     String _esperaT;
     String _comentario;
+    String _timeZone;
     bool confirmSend = true;
 
-    // Lê o tempo salvo n o DrpDown
+    // Lê o tempo salvo n o DropDown
     void readTime() async {
       final prefs = await SharedPreferences.getInstance();
       final key = 'tempoEspera';
@@ -165,8 +170,9 @@ class FormSaveData extends StatelessWidget {
     }
 
     // Envia alerta se o comentario foi enviado
-    void enviaMensagem(){
-      if(confirmSend == true){
+    void enviaMensagem(bool teste){
+      print('Bool confirm entrou no EnviaMensagem: $teste');
+      if(teste == true){
         showAlert(context);
       }else{
         showAlertErrorSend(context);
@@ -179,27 +185,30 @@ class FormSaveData extends StatelessWidget {
       print('Entrou no sendRecord');
       String ref = idHospital.toString();
       String aData = _date.toString();
+      String result = aData.substring(0, aData.indexOf('.'));
+      aData = result;
       String oEmail = _email;
+      String emailKey = _email.replaceAll('@', '');
+      emailKey = emailKey.replaceAll('.', '');
       String oTempo = _esperaT;
       String oComentario = _comentario;
-      print('Referencia: $ref \n Data: $aData \n Email: $oEmail \n O tempo: $oTempo \n O comentario: $oComentario');
-        try{
-          _database.child("$ref").child("10").set({
+
+      print('Referencia: $ref \n Data: $aData \n Email: $oEmail \n Email Key: $emailKey \n O tempo: $oTempo \n O comentario: $oComentario \n No Send record o Bool confirm entrou $confirmSend');
+
+          _database.child("$ref").child(emailKey).child(aData).set({
             'Data': aData,
             'E-mail': oEmail,
-            'Espera' : oTempo,
-            'Comentario' : oComentario,
-          });
-
-        }on Exception catch(exception){
-          print('Exceção ao salvar dados + $exception');
-          confirmSend = false;
-        }catch(erro){
-          print('Erro ao salvar dados + $erro');
-          confirmSend = false;
-        }
+            'Espera': oTempo,
+            'Comentario': oComentario,
+          }).catchError((e) {
+            print('Erro ao enviar avaliação: $e');
+            confirmSend = false;
+            print('O bool confirm foi trocado no catch exception para: $confirmSend');
+            
+          }).then((value) => enviaMensagem(confirmSend));
     }
 
+    // Valida se o usuário selecionou um tempo
     Future<void> valideDados() async {
       String tempo;
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -207,7 +216,6 @@ class FormSaveData extends StatelessWidget {
 
       if( tempo != "TEMPO" && tempo != null ){
         sendRecord();
-        enviaMensagem();
 
       }else{
         showAlertError(context);
@@ -265,10 +273,13 @@ class FormSaveData extends StatelessWidget {
                   color: Colors.blue[700],
                   child: new Text('    Enviar    ', style: new TextStyle(color: Colors.white,fontSize: 20.0),),
                   onPressed:( ){
+
                     readTime();
                     readComentario();
                     atualizaVariaveis();
                     valideDados();
+
+
                   },
                 ),
               ],
@@ -336,4 +347,5 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 
 }
+
 
