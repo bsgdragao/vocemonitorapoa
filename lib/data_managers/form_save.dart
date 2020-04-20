@@ -185,6 +185,8 @@ class FormSaveData extends StatelessWidget {
       print('Entrou no sendRecord');
       // Referencia do hospital para String
       String ref = idHospital.toString();
+      // Define a variavel do tempo
+      String refT = ref + "1";
       // DateTime para string
       String aData = _date.toString();
       // Limpeza dos dos milisegundos do date time
@@ -202,9 +204,9 @@ class FormSaveData extends StatelessWidget {
       // Comentario do usuario
       String oComentario = _comentario;
       // Imprime as variaveis enviadas.
-      print('Referencia: $ref \n Data: $aData \n Email: $oEmail \n Email Key: $emailKey \n O tempo: $oTempo \n O comentario: $oComentario \n No Send record o Bool confirm entrou $confirmSend');
+      print('Referencia: $ref \n referencia do tempo $refT \n Data: $aData \n Email: $oEmail \n Email Key: $emailKey \n O tempo: $oTempo \n O comentario: $oComentario \n No Send record o Bool confirm entrou $confirmSend');
           // Envia somente o tempo para ser sobrescrito do Hospital
-          _database.child("$ref").set({
+          _database.child("$refT").set({
             'Espera': oTempo,
           });
           // Envia todo o formulário para o registro do usuário.
