@@ -1,6 +1,4 @@
 // Instituto de cardiologia fundação universitária
-import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -48,7 +46,7 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
         prefs.setString('TempoEsperaShar', temp);
        //print('\nNo getTime o datetime é $dataTime e o temp: é $temp');
         print('Variavel temp no getTime é: $temp');
-        //TempoDeEspera.Espera = temp;
+        TempoDeEspera.Espera = temp;
         setState(() {
 
         });

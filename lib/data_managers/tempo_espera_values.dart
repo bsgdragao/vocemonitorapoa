@@ -5,25 +5,32 @@ class ValoresDeEspera {
   final DatabaseReference _dataTime = FirebaseDatabase.instance.reference();
 
   var dataTime;
-  String tempoNo1, tempoNo2, tempoNo3, tempoNo4,
-      tempoNo5, tempoNo6, tempoNo7, tempoNo8, tempoNo9,
-      tempoNo10, tempoNo11, tempoNo12, tempoNo13, tempoNo14;
+  static List hospList;
 
-  _getTimeData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    _dataTime.child('11').once().then((DataSnapshot snapshot) {
-      dataTime = snapshot.value;
-      String temp = dataTime.toString();
-      //print('\n1º o temp: é $temp');
-      temp = temp.replaceAll('{', '');
-      //print('\n2º o temp: é $temp');
-      temp = temp.replaceAll('}', '');
-      //print('\n3º o temp: é $temp');
-      prefs.setString('TempoEsperaShar', temp);
-      //print('\nNo getTime o datetime é $dataTime e o temp: é $temp');
-      print('Variavel temp no getTime é: $temp');
+  getTimeData(var listaDeEspera) async {
 
-    });
+      for(int i = 11; i < 142; i+=10){
+        for(int x = 0; x <15; x++ ) {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          _dataTime.child(i.toString()).once().then((DataSnapshot snapshot) {
+            dataTime = snapshot.value;
+            String temp = dataTime.toString();
+            //print('\n1º o temp: é $temp');
+            temp = temp.replaceAll('{', '');
+            //print('\n2º o temp: é $temp');
+            temp = temp.replaceAll('}', '');
+            //print('\n3º o temp: é $temp');
+            prefs.setString('TempoEsperaShar', temp);
+            //print('\nNo getTime o datetime é $dataTime e o temp: é $temp');
+            print('Variavel temp no getTime é: $temp');
+            hospList[x] = temp;
+            listaDeEspera[x] = temp;
+            print('Variavel hospList no getTime é:' + hospList[x]);
+
+          });
+        }
+      }
+      return listaDeEspera;
   }
 }
 

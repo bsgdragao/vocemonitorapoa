@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:maps_launcher/maps_launcher.dart';
@@ -6,9 +7,41 @@ import 'package:vocemonitorapoa/hospitais_pages/ic_fuc.dart';
 
 
 class HospitaisList extends StatelessWidget {
+  final DatabaseReference _dataTime = FirebaseDatabase.instance.reference();
+  static String printa1, printa2, printa3, printa4, printa5, printa6, printa7, printa8,
+                printa9, printa10, printa11, printa12, printa13, printa14;
+
+  var dataTime;
+
+  getTimeData() async {
+    int x;
+    int y=0;
+      for( x = 11; x < 142; x+=10){
+          String indice = x.toString();
+          print('\n Indice é: $indice');
+          _dataTime.child(indice).once().then((DataSnapshot snapshot) {
+            dataTime = snapshot.value;
+            String temp = dataTime.toString();
+            //print('\n1º o temp: é $temp');
+            temp = temp.replaceAll('{', '');
+            //print('\n2º o temp: é $temp');
+            temp = temp.replaceAll('}', '');
+            //print('\n3º o temp: é $temp');
+            //print('\nNo getTime o datetime é $dataTime e o temp: é $temp');
+            print('\nVariavel temp no getTime é: $temp');
+            print('\nVariavel Y é: $y');
+            AtualizaLista.listaAtualizada[y] = temp;
+            y++;
+          });
+     }
+
+  }
 
   @override
   Widget build(BuildContext context) {
+   initState(){
+     print('Init State');
+   }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
     home: Scaffold(
@@ -42,7 +75,7 @@ class HospitaisList extends StatelessWidget {
                       style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.w900),),
                     new AutoSizeText(' Av. Princesa Isabel, 395 \n Santana, Porto Alegre', style: TextStyle(color: Colors.blue[600]),),
                     new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                    new AutoSizeText('    ' + '      H' + '    M', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold ),),
+                    new AutoSizeText(  AtualizaLista.listaAtualizada[0].toString(), style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold ),),
                       ],
                     ),
                   ],
@@ -675,4 +708,8 @@ class HospitaisList extends StatelessWidget {
     ),
     );
   }
+}
+
+class AtualizaLista{
+  static List<String> listaAtualizada = List<String>(14);
 }
