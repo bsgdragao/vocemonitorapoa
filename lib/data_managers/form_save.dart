@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -219,7 +221,9 @@ class FormSaveData extends StatelessWidget {
             print('Erro ao enviar avaliação: $e');
             confirmSend = false;
             print('O bool confirm foi trocado no catch exception para: $confirmSend');
-          }).then((value) => enviaMensagem(confirmSend));
+          });
+      sleep(const Duration(seconds:1));
+      enviaMensagem(confirmSend);
     }
 
     // Valida se o usuário selecionou um tempo

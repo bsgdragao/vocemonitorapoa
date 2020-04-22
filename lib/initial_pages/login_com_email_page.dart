@@ -35,14 +35,8 @@ class _EmailLoginState extends State<EmailLogin> {
     jaLogado();
     autoLogIn();
     super.initState();
-
-//      widget.auth.currentUser().then((userId) {
-//        setState(() {
-//          authStatus =
-//          userId == null ? AuthStatus.naoLogado : AuthStatus.logado;
-//        });
-//      });
     }
+
     // Persistencia de dados
     Future<void> jaLogado() async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
