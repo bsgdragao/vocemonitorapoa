@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
+import 'package:vocemonitorapoa/data_managers/hospitals_list.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 import '../main.dart';
 
@@ -112,7 +112,7 @@ class PerfilGoogle extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) =>  new HospitaisList(),
+                        MaterialPageRoute(builder: (context) =>  new HospitalsList(),
                         ),
                       );
                     },

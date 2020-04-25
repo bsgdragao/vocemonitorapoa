@@ -42,8 +42,10 @@ class _EmailLoginState extends State<EmailLogin> {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
 
       if(prefs.get('userEmail') != null){
-        Navigator.push(context,
-          MaterialPageRoute(builder: (context) => PerfilComEmail(), ),);
+        Navigator.push(
+          context,
+          new MaterialPageRoute(
+            builder: (context) => new PerfilComEmail(), ),);
       }
 
     }
@@ -147,8 +149,10 @@ class _EmailLoginState extends State<EmailLogin> {
         prefs.setString('userId', userId);
         prefs.setString('userName', 'Anônimo');
         print('Email passou como ' + _email);
-        Navigator.push(context,
-          MaterialPageRoute(builder: (context) => PerfilComEmail(), ),);
+        Navigator.push(
+          context,
+          new MaterialPageRoute(
+            builder: (context) => new PerfilComEmail(), ),);
 
       });
       return;

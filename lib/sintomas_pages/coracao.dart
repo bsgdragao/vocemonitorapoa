@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:vocemonitorapoa/select_hospitais/atende_coluna_infantil.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coracao.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_olho.dart';
-import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
 
 class CoracaoPage extends StatelessWidget {
   @override

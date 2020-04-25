@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:vocemonitorapoa/data_managers/hospitals_list.dart';
 import 'package:vocemonitorapoa/main.dart';
-import 'package:vocemonitorapoa/select_hospitais/hospitais_list.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 
 class LoginComFacebook extends StatefulWidget {
@@ -171,10 +171,10 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     ),
                   ],),
                 onPressed: () {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                          builder: (context) => new HospitaisList(),
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                      builder: (context) => new HospitalsList(),
                         ),
                  );
                 },
@@ -204,7 +204,8 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
     setState(() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) =>  new MyApp(),
+        new MaterialPageRoute(
+            builder: (context) => new MyApp(),
       ),
       );
     });

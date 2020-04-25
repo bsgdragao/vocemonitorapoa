@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -27,6 +27,10 @@ class FormSaveData extends StatelessWidget {
     int _reference;
     DateTime _date;
     String _email;
+    String ref = idHospital.toString();
+    // Define a variavel do tempo
+    String refT = ref + "1";
+    print('Referencia de tempo é: $refT');
     String _esperaT;
     String _comentario;
     String _timeZone;
@@ -38,8 +42,8 @@ class FormSaveData extends StatelessWidget {
       final key = 'tempoEspera';
       final value = prefs.getString(key) ?? null;
       _esperaT = value;
-      print('Valor lido no Shared para espera: $value');
-      print('Valor salvo em espera: $_esperaT');
+      //print('Valor lido no Shared para espera: $value');
+      //print('Valor salvo em espera: $_esperaT');
     }
 
     //Salva o comentário do form
@@ -58,8 +62,8 @@ class FormSaveData extends StatelessWidget {
       final key = 'comentario';
       final value = prefs.getString(key) ?? null;
       _comentario = value;
-      print('Valor lido no Shared para cometário: $value');
-      print('Valor salvo no _comentario: $_comentario');
+      //print('Valor lido no Shared para cometário: $value');
+      //print('Valor salvo no _comentario: $_comentario');
     }
 
     // Função que garante que os dados são os atualizados
@@ -67,14 +71,14 @@ class FormSaveData extends StatelessWidget {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
 
       _reference = idHospital;
-      print("$_reference essa é a referência");
+      //print("$_reference essa é a referência");
       DateTime tempoUtc = DateTime.now();
       _date = tempoUtc.toLocal();
-      print(_date);
+      //print(_date);
       _email = prefs.get('userEmail');
-      print(_email);
-      print(_esperaT);
-      print(_comentario);
+      //print(_email);
+      //print(_esperaT);
+      //print(_comentario);
     }
 
     // Limpeza do tempo e comentario do Shared
@@ -83,9 +87,9 @@ class FormSaveData extends StatelessWidget {
       preferences.setString('tempoEspera', null);
       _esperaT = preferences.get('tempoEspera');
       preferences.setString('comentario', null);
-      _comentario = preferences.get('cometario');
+      _comentario = preferences.get('comentario');
       // Imprimi as saidas para validação
-      print('Tempo na saida é: $_esperaT \nComentario na saida é: $_comentario');
+      //print('Tempo na saida é: $_esperaT \nComentario na saida é: $_comentario');
     }
 
     // Alert de agradecimento
@@ -124,7 +128,6 @@ class FormSaveData extends StatelessWidget {
         child: Text("OK"),
         onPressed: () {
           Navigator.pop(context, true);
-
         },
       );
       // configura o  AlertDialog
@@ -151,7 +154,6 @@ class FormSaveData extends StatelessWidget {
         child: Text("OK"),
         onPressed: () {
           Navigator.pop(context, true);
-
         },
       );
       // configura o  AlertDialog
@@ -173,7 +175,7 @@ class FormSaveData extends StatelessWidget {
 
     // Envia alerta se o comentario foi enviado
     void enviaMensagem(bool teste){
-      print('Bool confirm entrou no EnviaMensagem: $teste');
+      //print('Bool confirm entrou no EnviaMensagem: $teste');
       if(teste == true){
         showAlert(context);
       }else{
@@ -184,43 +186,36 @@ class FormSaveData extends StatelessWidget {
     // Envia o comentario para o Firebase
     void sendRecord() {
       //Garante o formato dos dados para envio como String e keys limpos
-      print('Entrou no sendRecord');
+      //print('Entrou no sendRecord');
       // Referencia do hospital para String
-      String ref = idHospital.toString();
-      // Define a variavel do tempo
-      String refT = ref + "1";
+      //String ref = idHospital.toString();
       // DateTime para string
       String aData = _date.toString();
       // Limpeza dos dos milisegundos do date time
       String result = aData.substring(0, aData.indexOf('.'));
       // Retorno do valor da String limpo
       aData = result;
-      // Email do Usuário
-      String oEmail = _email;
-      // Remoção do @ do email para uso como Key
-      String emailKey = _email.replaceAll('@', '');
-      // Remoção doponto do email para uso como Key
-      emailKey = emailKey.replaceAll('.', '');
       // Tempo de espera informado pelo User
       String oTempo = _esperaT;
       // Comentario do usuario
       String oComentario = _comentario;
       // Imprime as variaveis enviadas.
-      print('Referencia: $ref \n referencia do tempo $refT \n Data: $aData \n Email: $oEmail \n Email Key: $emailKey \n O tempo: $oTempo \n O comentario: $oComentario \n No Send record o Bool confirm entrou $confirmSend');
+      //print('Referencia: $ref \n referencia do tempo $refT \n Data: $aData \n Email Key: $emailKey \n O tempo: $oTempo \n O comentario: $oComentario \n No Send record o Bool confirm entrou $confirmSend');
           // Envia somente o tempo para ser sobrescrito do Hospital
           _database.child("$refT").set({
             'Espera': oTempo,
           });
           // Envia todo o formulário para o registro do usuário.
-          _database.child("$ref").child(emailKey).child(aData).set({
-            'Data': aData,
-            'E-mail': oEmail,
-            'Espera': oTempo,
+          //_database.child("$ref").child(emailKey).child(aData).set({
+          _database.child("$ref").child(aData).set({
+            //'Data': aData,
+            //'E-mail': oEmail,
+           // 'Espera': oTempo,
             'Comentario': oComentario,
           }).catchError((e) {
             print('Erro ao enviar avaliação: $e');
             confirmSend = false;
-            print('O bool confirm foi trocado no catch exception para: $confirmSend');
+            //print('O bool confirm foi trocado no catch exception para: $confirmSend');
           });
       sleep(const Duration(seconds:1));
       enviaMensagem(confirmSend);
@@ -261,7 +256,7 @@ class FormSaveData extends StatelessWidget {
                 SizedBox(height: 30.0),
                 new Container(
                   alignment: Alignment.centerLeft,
-                  child: Text('Como está o atendimento ai?', style: TextStyle(color: Colors.blue, fontSize: 20.0),),
+                  child: AutoSizeText('Como está o atendimento ai?', style: TextStyle(color: Colors.blue, fontSize: 20.0),),
                 ),
                 SizedBox(height: 10.0),
                 Builder(
@@ -334,7 +329,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     final key = 'tempoEspera';
     final value = time;
     prefs.setString(key, value);
-    print('Valor do tempo no Shared $value');
+    //print('Valor do tempo no Shared $value');
   }
    @override
   Widget build(BuildContext context) {
@@ -353,7 +348,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           dropdownValue = newValue;
           _saveTime(newValue);
         });
-                print('DropDown no Change: $dropdownValue ');
+                //print('DropDown no Change: $dropdownValue ');
       },
       items: <String>['TEMPO', '15 Min', '20 Min', '25 Min', '30 Min', '35 Min', '40 Min', '45 Min',
       '50 Min', '55 Min', '1 Hora', '1H 30Min', '2H', '2H 30Min', '3H', '3H 30Min',

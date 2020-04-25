@@ -5,7 +5,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/data_managers/form_save.dart';
 
 class InstitutoCardiologia extends StatefulWidget {
@@ -14,51 +13,116 @@ class InstitutoCardiologia extends StatefulWidget {
   _InstitutoCardiologiaState createState() => _InstitutoCardiologiaState();
 }
 class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
+  // Strings de referencia do hospital
+  int idHospital = 1;
+  String idComentarios = "1";
+  String idHospitalTime = "11";
+  //String com o nome do Hospital
+  String nomeHospital = "Instituto de Cardiologia";
 
   @override
   initState() {
-    _getTimeData();
+//    TempoDeEspera.Espera = 'carregando..';
+//    _getTimeData();
     super.initState();
   }
-
+  // Instancia do Firebase para a DB do tempo
   final DatabaseReference _dataTime = FirebaseDatabase.instance.reference();
-    // Strings de referencia do hospital
-    int idHospital = 1;
-    String idHospitalTime = "11";
 
-    //String com o nome do Hospital
-    String nomeHospital = "Instituto de Cardiologia";
+  // Variavel de controle e transferencia dos dados
+  var dataTime;
+  var dataComent;
 
-    // Variavel de controle e transferencia dos dados
-    var dataTime;
-
-  // Pega o tempo de espera
-   _getTimeData() async {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      _dataTime.child(idHospitalTime).once().then((DataSnapshot snapshot){
-        dataTime = snapshot.value;
-        String temp = dataTime.toString();
-        //print('\n1º o temp: é $temp');
-        temp =temp.replaceAll('{', '');
-        //print('\n2º o temp: é $temp');
-        temp = temp.replaceAll('}', '');
-        //print('\n3º o temp: é $temp');
-        prefs.setString('TempoEsperaShar', temp);
-       //print('\nNo getTime o datetime é $dataTime e o temp: é $temp');
-        print('Variavel temp no getTime é: $temp');
-        TempoDeEspera.Espera = temp;
-        setState(() {
-
-        });
-
-      });
-  }
+//  // Pega o tempo de espera offLine
+//  _getTimeData() async {
+//    //SharedPreferences prefs = await SharedPreferences.getInstance();
+//    _dataTime.child(idHospitalTime).once().then((DataSnapshot snapshot){
+//      dataTime = snapshot.value;
+//      String temp = dataTime.toString();
+//      //print('\n1º o temp: é $temp');
+//      temp =temp.replaceAll('{', '');
+//      //print('\n2º o temp: é $temp');
+//      temp = temp.replaceAll('}', '');
+//      //print('\n3º o temp: é $temp');
+//      //prefs.setString('TempoEsperaShar', temp);
+//      //print('\nNo getTime o datetime é $dataTime e o temp: é $temp');
+//      print('Variavel temp no getTime é: $temp');
+//      TempoDeEspera.Espera = temp;
+//      setState(() {
+//
+//      });
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
+    Widget comentsWidget() {
+      return StreamBuilder(
+          stream: FirebaseDatabase.instance
+              .reference()
+              .child(idComentarios)
+              .onValue,
+          builder: (BuildContext context, AsyncSnapshot<Event> snapshot) {
+            if (snapshot.hasData) {
+              Map<dynamic, dynamic> map = snapshot.data.snapshot.value;
+              map.forEach((dynamic, v) => print(v[dynamic]));
+              return new ListView.builder(
+                itemCount: map.length,
+                itemBuilder: (BuildContext context, int index) {
+                  String key = map.keys.elementAt(index);
+                  return new Column(
+                    children: <Widget>[
+                      new ListTile(
+                        title: new AutoSizeText("$key", style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold),minFontSize: 18.0),
+                        subtitle: new AutoSizeText("${map[key].toString().replaceAll("}", "").trim().replaceAll('{', '')}", style: TextStyle(color: Colors.blue[500]),minFontSize: 18.0),
+                      ),
+                      new Divider(
+                        height: 2.0,
+                      ),
+                    ],
+                  );
+                },
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          });
+    }
+    Widget timeWidget() {
+      return StreamBuilder(
+          stream: FirebaseDatabase.instance
+              .reference().child(idHospitalTime)
+              .onValue,
+          builder: (BuildContext context, AsyncSnapshot<Event> snapshot) {
+            if (snapshot.hasData) {
+              Map<dynamic, dynamic> map = snapshot.data.snapshot.value;
+              //map.forEach((dynamic, v) => print(v[dynamic]));
+              return new ListView.builder(
+                itemCount: map.length,
+                itemBuilder: (BuildContext context, var index) {
+                  String key = map.keys.elementAt(index);
+                  return new Column(
+                    children: <Widget>[
+                      new ListTile(
+                        //  title: new AutoSizeText("$key", style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold),minFontSize: 18.0),
+                        title: new AutoSizeText("${map[key].toString().replaceAll("}", "").trim().replaceAll('{', '')}", style: TextStyle(color: Colors.yellow[700], fontWeight: FontWeight.bold),textAlign: TextAlign.center, minFontSize: 30.0),
+                        //  subtitle: new AutoSizeText("${map[key].toString().replaceAll("}", "").trim().replaceAll('{', '')}", style: TextStyle(color: Colors.blue[500]),minFontSize: 18.0),
+                      ),
+                      new Divider(
+                        height: 2.0,
+                      ),
+                    ],
+                  );
+                },
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          });
+    }
+
     setState(() {
       print(TempoDeEspera.Espera);
-
     });
     sleep(const Duration(seconds:2));
     return MaterialApp(
@@ -84,16 +148,26 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(height: 14.0),
-                        AutoSizeText("Tempo atual de", style: TextStyle(color: Colors.blue[700], fontWeight: FontWeight.bold),minFontSize: 30.0, ),
-                        AutoSizeText(TempoDeEspera.Espera, style: TextStyle(color: Colors.yellow[700], fontWeight: FontWeight.bold),minFontSize: 36.0, ),
+                        AutoSizeText("Tempo de espera atual:", style: TextStyle(color: Colors.blue[700], fontWeight: FontWeight.bold),minFontSize: 30.0),
+                        //AutoSizeText(TempoDeEspera.Espera, style: TextStyle(color: Colors.yellow[700], fontWeight: FontWeight.bold),minFontSize: 36.0),
                         //SizedBox(height: 10.0),
                       ]
                   ),
                 ),
+                new Row(
+                  children: <Widget> [
+                    Expanded(child: SizedBox(
+                      height: 50,
+                      child: new Flexible(
+                        child: timeWidget(),
+                      ),
+                    ))
+                  ],
+                ),
                 new InkWell(
                   child: new Column(
                     children: <Widget>[
-                      SizedBox(height: 10.0),
+                      //SizedBox(height: 10.0),
                       SizedBox(
                           height: 50.0,
                           width: 50.0,
@@ -113,9 +187,9 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
                           MaterialPageRoute(builder: (context) => FormSaveData(idHospital: idHospital),),);
                       },
                         child: AutoSizeText('Está esperando a mais tempo? '
-                                           '\nFoi atendido em um tempo menor?'
-                                            '\nInforme o tempo correto!',
-                              textAlign: TextAlign.center, style: TextStyle(
+                            '\nFoi atendido em um tempo menor?'
+                            '\nInforme o tempo correto!',
+                          textAlign: TextAlign.center, style: TextStyle(
                               color: Colors.blue[600],fontWeight: FontWeight.bold),
                           minFontSize: 20.0,),),
                       SizedBox(height: 0.5),
@@ -123,11 +197,21 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.all(10.0),
                         child: new Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             AutoSizeText("Comentários:", textAlign: TextAlign.left, style: TextStyle(color: Colors.blue[600], fontWeight: FontWeight.bold, ),minFontSize: 24.0, ),
                           ],
                         ),
+                      ),
+                      new Row(
+                        children: <Widget> [
+                          Expanded(child: SizedBox(
+                            height: 200,
+                            child: new Flexible(
+                              child: comentsWidget(),
+                            ),
+                          ))
+                        ],
                       ),
                     ],
                   ),
@@ -145,7 +229,5 @@ class _InstitutoCardiologiaState extends State<InstitutoCardiologia> {
 
 class TempoDeEspera {
   static String Espera;
-
-
 }
 
