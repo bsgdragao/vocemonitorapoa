@@ -1,11 +1,13 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_email_page.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_facebook_page.dart';
-import 'package:vocemonitorapoa/initial_pages/perfil_com_google_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
+import 'initial_pages/perfil_page.dart';
 
 
 void main() {
@@ -14,6 +16,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,10 +40,22 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
+  UserDetails userLogged;
+
   Future<FirebaseUser> _signIn(BuildContext context) async {
 
+   final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  if(prefs.getString('userEmail') != null){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => new PerfilPage(),
+      ),
+    );
+
+  }else{
     Scaffold.of(context).showSnackBar(new SnackBar(
-      content: new Text('Fazendo login'),
+      content: new AutoSizeText('Fazendo login'),
     ));
 
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
@@ -64,12 +79,20 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
       userDetails.email,
       providerData,
     );
+
+    prefs.setString('userEmail', userDetails.email);
+    prefs.setString('userId', userDetails.providerId);
+    prefs.setString('userName',  userDetails.displayName);
+    prefs.setString('photoUrl',  userDetails.photoUrl);
+
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => new PerfilGoogle(detailsUser: details),
+      MaterialPageRoute(builder: (context) => new PerfilPage(),
       ),
     );
     return userDetails;
+  }
+
   }
 
 
@@ -84,7 +107,7 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/medico.png'),
-                Text('Você Monitora POA',
+                AutoSizeText('Você Monitora POA',
                     style: TextStyle(fontSize: 38, color: Color.fromRGBO(65, 105, 225, 2))),
                 SizedBox(height:10.0),
                 Container(
@@ -100,14 +123,11 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
                           children: <Widget>[
                             Icon(FontAwesomeIcons.google,color: Color(0xffCE107C),),
                             SizedBox(width:10.0),
-                            Text(
+                            AutoSizeText(
                               '  Participar com Google',
-                              style: TextStyle(color: Colors.black,fontSize: 18.0),
-                            ),
+                              style: TextStyle(color: Colors.black), minFontSize: 12.0),
                           ],),
-                        onPressed: () => _signIn(context)
-                            .then((FirebaseUser user) => print(user))
-                            .catchError((e) => print(e)),
+                        onPressed: () => _signIn(context),
                       ),
                     )
                 ),
@@ -125,9 +145,9 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
                           children: <Widget>[
                             Icon(FontAwesomeIcons.facebookF,color: Color(0xff4754de),),
                             SizedBox(width:10.0),
-                            Text(
+                            AutoSizeText(
                               '  Participar com Facebook',
-                              style: TextStyle(color: Colors.black,fontSize: 18.0),
+                              style: TextStyle(color: Colors.black), minFontSize: 12.0,
                             ),
                           ],),
                         onPressed: () {
@@ -153,10 +173,10 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
                           children: <Widget>[
                             Icon(FontAwesomeIcons.solidEnvelope,color: Color(0xff4caf50),),
                             SizedBox(width:10.0),
-                            Text(
+                            AutoSizeText(
                               '  Participar'
                                   ' com Email',
-                              style: TextStyle(color: Colors.black,fontSize: 18.0),
+                              style: TextStyle(color: Colors.black), minFontSize: 12.0,
                             ),
                           ],),
                         onPressed: () {

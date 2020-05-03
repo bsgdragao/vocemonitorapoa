@@ -42,7 +42,7 @@ class AtendeVomitoInfantil extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Atende Vômito Infantil: "),
+          title: AutoSizeText("Atende Vômito Infantil: "),
         ),
         body:  new Container(
           padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_email_page.dart';
-import 'package:vocemonitorapoa/initial_pages/perfil_com_email_page.dart';
-
-
 import 'auth.dart';
 
 // Bloco de autenticação por Email

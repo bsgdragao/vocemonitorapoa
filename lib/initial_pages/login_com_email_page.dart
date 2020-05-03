@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vocemonitorapoa/initial_pages/perfil_com_email_page.dart';
+import 'package:vocemonitorapoa/initial_pages/perfil_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
 import 'package:vocemonitorapoa/tasks/status_login.dart';
 
 class EmailLogin extends StatefulWidget {
-  EmailLogin({this.auth});
+  EmailLogin({@required this.auth});
   final BaseAuth auth;
 
   @override
@@ -32,23 +32,22 @@ class _EmailLoginState extends State<EmailLogin> {
 
   initState() {
     // TODO: implement initState
-    jaLogado();
-    autoLogIn();
+      jaLogado();
     super.initState();
+  }
+
+  // Persistencia de dados
+  Future<void> jaLogado() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if(prefs.get('userEmail') != null){
+      Navigator.push(
+        context,
+        new MaterialPageRoute(
+          builder: (context) => new PerfilPage(), ),);
     }
 
-    // Persistencia de dados
-    Future<void> jaLogado() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-      if(prefs.get('userEmail') != null){
-        Navigator.push(
-          context,
-          new MaterialPageRoute(
-            builder: (context) => new PerfilComEmail(), ),);
-      }
-
-    }
+  }
 
   // Validação se os dados de formulário foram preeenchidos
   bool validateAndSave(){
@@ -82,7 +81,7 @@ class _EmailLoginState extends State<EmailLogin> {
       if(_email != null){
         print("Logado no Validade and Submit");
         setState(() {
-          autoLogIn();
+          doLogIn();
         });
       }else{
         print("Não logado, passou no else do validate and Submit");
@@ -135,13 +134,13 @@ class _EmailLoginState extends State<EmailLogin> {
   bool isLoggedIn = false;
   String name = '';
 
-    void autoLogIn() async {
+  void doLogIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     final String userId = await widget.auth.signInWithEmailAndPassword(
         _email, _password);
 
-      if (userId != null || prefs.get('userEmail') != null) {
+    if (userId != null || prefs.get('userEmail') != null) {
       setState(() {
         isLoggedIn = true;
         print('Abriu no if do autoLogIn com ID: '+ userId);
@@ -152,7 +151,7 @@ class _EmailLoginState extends State<EmailLogin> {
         Navigator.push(
           context,
           new MaterialPageRoute(
-            builder: (context) => new PerfilComEmail(), ),);
+            builder: (context) => new PerfilPage(), ),);
 
       });
       return;
@@ -200,8 +199,8 @@ class _EmailLoginState extends State<EmailLogin> {
       new TextFormField(
         obscureText: true,
         decoration: new InputDecoration(labelText: 'Senha', border: new OutlineInputBorder(
-    borderRadius: new BorderRadius.circular(30.0),
-    borderSide: new BorderSide(),), ),
+          borderRadius: new BorderRadius.circular(30.0),
+          borderSide: new BorderSide(),), ),
         validator: (value) => value.isEmpty ? 'Senha não pode ser em branco, minimo 6 caracteres.' : null,
         onSaved: (value) => _password = value,
 
@@ -244,10 +243,6 @@ class _EmailLoginState extends State<EmailLogin> {
 
   }
 }
-
-
-
-
 
 
 

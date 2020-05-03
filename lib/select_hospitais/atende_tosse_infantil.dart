@@ -42,7 +42,7 @@ class AtendeTosseInfantil extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Atende Tosse Infantil: "),
+          title: AutoSizeText("Atende Tosse Infantil: "),
         ),
         body:  new Container(
           padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

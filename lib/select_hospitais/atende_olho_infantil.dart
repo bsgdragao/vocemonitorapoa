@@ -43,7 +43,7 @@ class AtendeOlhoInfantil extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende Olho Infantil: "),
+            title: AutoSizeText("Atende Olho Infantil: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

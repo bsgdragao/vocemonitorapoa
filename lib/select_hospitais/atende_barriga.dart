@@ -43,7 +43,7 @@ class AtendeDorBarriga extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende estômago: "),
+            title: AutoSizeText("Atende estômago: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

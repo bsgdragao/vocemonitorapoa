@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,7 +36,7 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
       home: Scaffold(
         appBar: AppBar(
           //Se logado exibe o nome se não Facebook
-          title: Text(isLoggedIn ? "${profileData['name']}" : "Facebook Login" ),
+          title: AutoSizeText(isLoggedIn ? "${profileData['name']}" : "Facebook Login" ),
           actions: <Widget>[
             //Botão de logout
             IconButton(
@@ -112,10 +113,10 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
           ),
         ),
         SizedBox(height: 28.0),
-        Text(
+        AutoSizeText(
 //          "FBID ${profileData['id']}\n"
               "${profileData['name']}\n${profileData['email']}",
-    style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 24.0),
+    style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0,
               textAlign: TextAlign.center,
         ),
         Container(
@@ -131,9 +132,9 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                   children: <Widget>[
                     Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
                     SizedBox(width:20.0),
-                    Text(
+                    AutoSizeText(
                       'EMERGÊNCIA',
-                      style: TextStyle(color: Colors.red,fontSize: 30.0, fontWeight: FontWeight.bold ),
+                      style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold ),minFontSize: 10.0
                     ),
                   ],),
                 onPressed: () {
@@ -146,9 +147,9 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
               ),
             )
         ),
-        Text(
+        AutoSizeText(
           "Para qual hospital devo ir?" ,
-          style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 20.0),
+          style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]),minFontSize: 10.0
         ),
         SizedBox(height:30.0),
 
@@ -165,9 +166,9 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                   children: <Widget>[
                     Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
                     SizedBox(width:20.0),
-                    Text(
+                    AutoSizeText(
                       'Avaliar tempo de espera',
-                      style: TextStyle(color: Colors.blue[900],fontSize: 18.0),
+                      style: TextStyle(color: Colors.blue[900],), minFontSize: 14.0
                     ),
                   ],),
                 onPressed: () {
@@ -181,9 +182,9 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
               ),
             )
         ),
-        Text(
+        AutoSizeText(
           "Avalie o tempo de espera \n     de uma emergência." ,
-          style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 20.0),
+          style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
         ),
       ],
     );
@@ -191,7 +192,7 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
   // Botão de login
   _displayLoginButton() {
     return RaisedButton(
-      child: Text("Logar no Facebook"),
+      child: AutoSizeText("Logar no Facebook"),
       onPressed: () => initiateFacebookLogin(),
       color: Colors.blue,
       textColor: Colors.white,

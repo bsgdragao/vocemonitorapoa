@@ -2,28 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_clinicas.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_clinicas_pediatria.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_crianca_conceicao.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_cristo_redentor.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_hnsc.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_presidente_vargas.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_pronto_socorro.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_restinga.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_restinga_pediatria.dart';
-import 'package:vocemonitorapoa/hospitais_pages/hospital_santo_antonio.dart';
-import 'package:vocemonitorapoa/hospitais_pages/ic_fuc.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_bom_jesus.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_bom_jesus_pediatria.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_cruzeiro.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_cruzeiro_pediatria.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_lomba_pinheiro.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_lomba_pinheiro_pediatria.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_moacyr_scliar.dart';
-import 'package:vocemonitorapoa/hospitais_pages/pa_moacyr_scliar_pediatria.dart';
-import 'package:vocemonitorapoa/hospitais_pages/santa_casa.dart';
-import 'package:vocemonitorapoa/hospitais_pages/sao_lucas.dart';
-import 'package:vocemonitorapoa/hospitais_pages/sao_lucas_pediatria.dart';
+import 'package:vocemonitorapoa/hospitais_pages/hospital_pages.dart';
 
 class HospitalsList extends StatefulWidget {
   @override
@@ -41,7 +20,6 @@ class _HospitalsListState extends State<HospitalsList> {
           builder: (BuildContext context, AsyncSnapshot<Event> snapshot) {
             if (snapshot.hasData) {
               Map<dynamic, dynamic> map = snapshot.data.snapshot.value;
-              //map.forEach((dynamic, v) => print(v[dynamic]));
               return new ListView.builder(
                 shrinkWrap: true,
                 itemCount: map.length,
@@ -68,7 +46,7 @@ class _HospitalsListState extends State<HospitalsList> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
         appBar: AppBar(
-        title: Text("Selecione um hospital para: "),
+        title: AutoSizeText("Selecione um hospital para: "),
                ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),
@@ -112,7 +90,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap:(){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => InstitutoCardiologia(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 1,nameHospital: "Instituto de Cardiologia",trackImage: 'assets/hospitais/cardiologia.png',),),);
                         }
                     ),
 
@@ -149,7 +127,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalClinicas(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 2, nameHospital: "Hospital de Clinicas", trackImage: 'assets/hospitais/clinicas.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -187,7 +165,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalClinicasPediatria(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 3,nameHospital: 'Hospital de Clinicas - PEDIATRIA',trackImage: 'assets/hospitais/clinicasp.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -226,7 +204,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HospitalCristo()),
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 4,nameHospital: 'Hospital Cristo Redentor',trackImage: 'assets/hospitais/cristo_redentor.png',)),
                           );
                         }
                     ),
@@ -244,7 +222,7 @@ class _HospitalsListState extends State<HospitalsList> {
                             new Column(
                               crossAxisAlignment:CrossAxisAlignment.start,
                               children: <Widget>[
-                                new AutoSizeText(' Hospital Materno Infantil Presidente Vargas',
+                                new AutoSizeText(' Hospital Materno Infantil\n Presidente Vargas',
                                   style: TextStyle( color: Colors.blue[600], fontWeight: FontWeight.w900),),
                                 new AutoSizeText(' Av. Independência, 661 \n Independência, Porto Alegre', style: TextStyle( color: Colors.blue[600]),),
                                 new AutoSizeText(' Tempo de espera dos usuários: ', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
@@ -265,7 +243,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => PresidenteVargas(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 5,nameHospital: 'Hospital Materno Infantil Presidente Vargas',trackImage: 'assets/hospitais/vargas.png',),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -303,7 +281,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalConceicao(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 6, nameHospital: 'Hospital Conceição', trackImage: 'assets/hospitais/hnsc.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -341,7 +319,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalConceicaoPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 7, nameHospital: 'Hospital Conceição - PEDIATRIA', trackImage: 'assets/hospitais/hnscp.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -379,7 +357,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalProntoSocorro(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 8, nameHospital: 'Hospital Pronto Socorro (HPS)', trackImage: 'assets/hospitais/pronto_socorro.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -417,7 +395,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalRestinga(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 9, nameHospital: 'Hospital da Restinga', trackImage: 'assets/hospitais/restinga.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -455,7 +433,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalRestingaPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 10, nameHospital: 'Hospital da Restinga PEDIATRIA', trackImage: 'assets/hospitais/restingap.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -493,7 +471,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalSantoAntonio(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 12, nameHospital: 'Hospital Santo Antônio (HSA)', trackImage: 'assets/hospitais/santo_antonio.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -531,7 +509,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalSantaCasa(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 13, nameHospital: 'Santa Casa - SUS', trackImage: 'assets/hospitais/santa_casa.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -569,7 +547,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalSaoLucas(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 14, nameHospital: 'Hospital São Lucas - SUS', trackImage: 'assets/hospitais/sao_lucas.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -607,7 +585,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HospitalSaoLucasPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 15, nameHospital: 'Hospital São Lucas - PEDIATRIA SUS', trackImage: 'assets/hospitais/sao_lucasp.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -645,7 +623,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaBomJesus(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 16, nameHospital: 'UPA - Bom Jesus', trackImage: 'assets/hospitais/bomjesus.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -682,7 +660,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaBomJesusPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 17, nameHospital: 'UPA - Bom Jesus PEDIATRIA', trackImage: 'assets/hospitais/bomjesusp.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -720,7 +698,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaCruzeiro(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 18, nameHospital: 'UPA - Cruzeiro do Sul', trackImage: 'assets/hospitais/cruzeiro.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -758,7 +736,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap:() {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaCruzeiroPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 19, nameHospital: 'UPA - Cruzeiro do Sul PEDIATRIA', trackImage: 'assets/hospitais/cruzeirop.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -796,7 +774,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaLomba(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 20, nameHospital: 'UPA - Lomba do Pinheiro', trackImage: 'assets/hospitais/lomba.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -834,7 +812,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: (){
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaLombaPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 22, nameHospital: 'UPA - Lomba do Pinheiro PEDIATRIA', trackImage: 'assets/hospitais/lombap.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -872,7 +850,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: ()  {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaMoacyr(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 23, nameHospital: 'UPA - Moacyr Scliar', trackImage: 'assets/hospitais/moacyr.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),
@@ -910,7 +888,7 @@ class _HospitalsListState extends State<HospitalsList> {
                         splashColor: Colors.blue,
                         onTap: () {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => UpaMoacyrPed(),),);
+                            MaterialPageRoute(builder: (context) => HospitalPages(idHospital: 24, nameHospital: 'UPA - Moacyr Scliar PEDIATRIA', trackImage: 'assets/hospitais/moacyrp.png'),),);
                         }
                     ),
                     SizedBox(height: 10.0),

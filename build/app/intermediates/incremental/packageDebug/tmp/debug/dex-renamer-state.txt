@@ -1,4 +1,4 @@
-#Fri Apr 24 22:26:26 BRT 2020
+#Sun May 03 20:30:34 BRT 2020
 base.0=C\:\\Users\\bruno\\VisualStudioProjects\\voce_monitora_poa\\build\\app\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -43,7 +43,7 @@ class AtendePancadaInfantil extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende Trauma na cabeça Infantil: "),
+            title: AutoSizeText("Atende Trauma na cabeça Infantil: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

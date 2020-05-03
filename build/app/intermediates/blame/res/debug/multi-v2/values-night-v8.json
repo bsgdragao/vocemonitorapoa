@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\bruno\\VisualStudioProjects\\voce_monitora_poa\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\bruno\\.gradle\\caches\\transforms-2\\files-2.1\\6f7cefa0ba076405306fc600642b1626\\appcompat-1.0.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\bruno\\.gradle\\caches\\transforms-2\\files-2.1\\0f7265c9ca78233c5f60a11b8bdff525\\appcompat-1.0.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

@@ -43,7 +43,7 @@ class AtendeColunaInfantil extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende Coluna Infantil: "),
+            title: AutoSizeText("Atende Coluna Infantil: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

@@ -42,7 +42,7 @@ class AtendeVomito extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Atende vômito: "),
+          title: AutoSizeText("Atende vômito: "),
         ),
         body:  new Container(
           padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

@@ -43,7 +43,7 @@ class AtendeSangramentoInfantil extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende Sangramaneto Infantil: "),
+            title: AutoSizeText("Atende Sangramaneto Infantil: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

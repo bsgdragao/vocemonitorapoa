@@ -43,7 +43,7 @@ class AtendeFebreInfantil extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende Febre Infantil: "),
+            title: AutoSizeText("Atende Febre Infantil: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

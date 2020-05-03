@@ -1,0 +1,74 @@
+C:\Users\bruno\VisualStudioProjects\voce_monitora_poa>keytool -genkey -v -keystore c:/Users/bruno/key.jks -storetype JKS -keyalg RSA -keysize 2048 -v
+alidity 10000 -alias key
+Informe a senha da área de armazenamento de chaves:
+A senha da área de armazenamento de chaves é muito curta - ela deve ter, no mínimo, 6 caracteres
+Informe a senha da área de armazenamento de chaves:
+Informe novamente a nova senha:
+Qual é o seu nome e o seu sobrenome?
+  [Unknown]:  Bruno Guerra
+Qual é o nome da sua unidade organizacional?
+  [Unknown]:  Bitfrost Tecnologia
+Qual é o nome da sua empresa?
+  [Unknown]:  Bitfrost Tecnologia
+Qual é o nome da sua Cidade ou Localidade?
+  [Unknown]:  Porto Alegre
+Qual é o nome do seu Estado ou Município?
+  [Unknown]:  Rio Grande do Sul
+Quais são as duas letras do código do país desta unidade?
+  [Unknown]:  BR
+CN=Bruno Guerra, OU=Bitfrost Tecnologia, O=Bitfrost Tecnologia, L=Porto Alegre, ST=Rio Grande do Sul, C=BR Está correto?
+  [não]:  SIM
+
+Gerando o par de chaves RSA de 2.048 bit e o certificado autoassinado (SHA256withRSA) com uma validade de 10.000 dias
+        para: CN=Bruno Guerra, OU=Bitfrost Tecnologia, O=Bitfrost Tecnologia, L=Porto Alegre, ST=Rio Grande do Sul, C=BR
+Informar a senha da chave de <key>
+        (RETURN se for igual à senha da área do armazenamento de chaves):
+Informe novamente a nova senha:
+[Armazenando c:/Users/bruno/key.jks]
+
+Warning:
+O armazenamento de chaves JKS usa um formato proprietário. É recomendada a migração para PKCS12, que é um formato de padrão industrial que usa "keyto
+ol -importkeystore -srckeystore c:/Users/bruno/key.jks -destkeystore c:/Users/bruno/key.jks -deststoretype pkcs12".
+
+keytool -storepasswd -keystore c:/Users/bruno/key.jks
+
+keytool -keypasswd  -alias key.jks -keystore my.keystore
+
+ flutter build appbundle --target-platform android-arm,android-arm64,android-x64
+
+
+C:\Users\bruno\VisualStudioProjects\voce_monitora_poa>flutter pub pub run flutter_automation --android-sign
+Could not find package "flutter_automation". Did you forget to add a dependency?
+pub finished with exit code 65
+
+C:\Users\bruno\VisualStudioProjects\voce_monitora_poa>flutter pub pub run flutter_automation --android-sign
+enter key alias: vocemonitorapoa
+enter dname as (CN=popupbits.com, OU=DD, O=Popup Bits Ltd., L=Kathmandu, S=Bagmati, C=NP): vocemonitorapoa.com, Bitfrost Tecnologia
+key password: vocemonitora2020
+keystore password: vocemonitora2020
+erro de keytool: java.io.IOException: Incorrect AVA format
+generated keystore with provided input
+key properties file created
+configured release configs
+
+
+[Armazenando c:/Users/bruno/key.jks]
+
+Warning:
+O armazenamento de chaves JKS usa um formato proprietário. É recomendada a migração para PKCS12, que é um formato de padrão industrial que usa "keyto
+ol -importkeystore -srckeystore c:/Users/bruno/key.jks -destkeystore c:/Users/bruno/key.jks -deststoretype pkcs12".
+
+C:\Users\bruno\VisualStudioProjects\voce_monitora_poa>
+
+keytool -storepasswd -new vocemonitora2020 -keystore C:\Users\bruno\VisualStudioProjects\voce_monitora_poa\android\app\key.jks
+
+keytool -keypasswd -alias vocemonitorapoa -new vocemonitora2020 -keystore KeyStore.jks
+
+
+keytool -genkey -v -keystore C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/android/app/key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias vocemonitorapoa
+
+Warning:
+O armazenamento de chaves JKS usa um formato proprietário. É recomendada a migração para PKCS12, que é um formato de padrão industrial que usa "keyto
+ol -importkeystore -srckeystore C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/android/app/key.jks -destkeystore C:/Users/bruno/VisualStudioPr
+ojects/voce_monitora_poa/android/app/key.jks -deststoretype pkcs12".
+

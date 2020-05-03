@@ -43,7 +43,7 @@ class AtendeOssoQuebradoInfantil extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende Ossos Quebrados Infantil: "),
+            title: AutoSizeText("Atende Ossos Quebrados Infantil: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

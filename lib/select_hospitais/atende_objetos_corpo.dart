@@ -43,7 +43,7 @@ class AtendeObjetosCorpo extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Atende objetos no corpo: "),
+            title: AutoSizeText("Atende objetos no corpo: "),
           ),
           body:  new Container(
             padding: new EdgeInsets.fromLTRB(10.0, 0.6, 0.6, 10.0),

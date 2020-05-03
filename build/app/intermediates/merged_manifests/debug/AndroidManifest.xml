@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sms.vocemonitorapoa"
     android:versionCode="1"
-    android:versionName="1.0.0" >
+    android:versionName="3.0.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -28,7 +28,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/launcher_icon"
-        android:label="vocemonitorapoa"
+        android:label="Você Monitora POA"
         android:supportsRtl="true" >
         <activity
             android:name="com.sms.vocemonitorapoa.MainActivity"

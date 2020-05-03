@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vocemonitorapoa/select_hospitais/atende_coluna_adulto.dart';
@@ -10,7 +11,7 @@ class OssoQuebradoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Osso", style: TextStyle(
+        title: AutoSizeText("Osso", style: TextStyle(
             color: Colors.blueAccent
         ))
       ),
@@ -19,7 +20,7 @@ class OssoQuebradoPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
       SizedBox(height:20.0),
-      Text("Selecione o tipo de\natendimento:", style: TextStyle(color: Colors.blue,fontSize: 30.0, fontWeight: FontWeight.bold )),
+      AutoSizeText("Selecione o tipo de\natendimento:", style: TextStyle(color: Colors.blue,fontSize: 30.0, fontWeight: FontWeight.bold )),
       SizedBox(height:50.0),
       Container(
           width: 280.0,
@@ -34,7 +35,7 @@ class OssoQuebradoPage extends StatelessWidget {
                 children: <Widget>[
                   Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
                   SizedBox(width:20.0),
-                  Text(
+                  AutoSizeText(
                     'ADULTO',
                     style: TextStyle(color: Colors.red,fontSize: 30.0, fontWeight: FontWeight.bold ),
                   ),
@@ -50,7 +51,7 @@ class OssoQuebradoPage extends StatelessWidget {
             ),
           )
       ),
-      Text(
+      AutoSizeText(
         "Atendimento para Adultos" ,
         style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 20.0),
       ),
@@ -68,7 +69,7 @@ class OssoQuebradoPage extends StatelessWidget {
                 children: <Widget>[
                   Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
                   SizedBox(width:20.0),
-                  Text(
+                  AutoSizeText(
                     'INFANTIL',
                     style: TextStyle(color: Colors.red,fontSize: 30.0, fontWeight: FontWeight.bold ),
                   ),
@@ -84,7 +85,7 @@ class OssoQuebradoPage extends StatelessWidget {
             ),
           )
       ),
-      Text(
+      AutoSizeText(
         "Atendimento para crianças" ,
         style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700],fontSize: 20.0),
       ),

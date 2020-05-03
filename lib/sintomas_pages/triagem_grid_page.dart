@@ -74,7 +74,7 @@ class OpcaoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle textStyle = Theme.of(context)
-        .textTheme.headline4;
+        .textTheme.headline;
 //    final linkAction = ["Ambulancia", "coluna", "coracao", "tosse", "dordebarriga", "febre",
 //      "manchas", "olho", "ossoquebrado", "pacadanacabeca", "sangramento",
 //      "tontura", "vomito", "objetosnocorpo"];
@@ -84,7 +84,6 @@ class OpcaoCard extends StatelessWidget {
        // Ligação para Samu
        case 'Ambulancia':
          launch("tel://192");
-            print('Selecionou Ambulancia');
        break;
        // Página para problemas na coluna
        case 'Coluna':
@@ -94,7 +93,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new ColunaPage(),
            ),
          );
-            print('Selecionou coluna');
        break;
      // Página para problemas no coração
        case 'Coracao':
@@ -104,7 +102,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new CoracaoPage(),
            ),
          );
-            print('Selecionou coracao');
        break;
      // Página para problemas no estômago
        case 'DorDeBarriga':
@@ -114,7 +111,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new DorDeBarrigaPage(),
            ),
          );
-            print('Selecionou dor de barriga');
        break;
      // Página para problemas na Febre
        case 'Febre':
@@ -124,7 +120,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new FebrePage(),
            ),
          );
-         print('Selecionou febre');
        break;
      // Página para problemas com manchas no corpo
        case 'Manchas':
@@ -134,7 +129,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new ManchasPage(),
            ),
          );
-         print('Selecionou manchas');
        break;
      // Página para problemas com objetos no corpo
        case 'Objetos':
@@ -144,7 +138,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new ObjetosNoCorpoPage(),
            ),
          );
-         print('Selecionou Objetos');
        break;
        // Página para problemas no olho
        case 'Olho':
@@ -154,7 +147,6 @@ class OpcaoCard extends StatelessWidget {
            builder: (context) => new OlhoPage(),
          ),
        );
-          print('Selecionou olho');
        break;
      // Página para problemas com ossos quebrados
        case 'OssoQuebrado':
@@ -164,7 +156,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new OssoQuebradoPage(),
            ),
          );
-           print('Selecionou Osso quebrado');
        break;
      // Página para problemas com pancadas
        case 'Pancada':
@@ -184,7 +175,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new SangramentoPage(),
            ),
          );
-         print('Selecionou sangramento');
        break;
 
        case 'Tosse':
@@ -194,7 +184,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new TossePage(),
            ),
          );
-         print('Selecionou tosse');
        break;
 
        case 'Tontura':
@@ -204,7 +193,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new TonturaPage(),
            ),
          );
-         print('Selecionou tontura');
        break;
 
        case 'Vomito':
@@ -214,7 +202,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new VomitoPage(),
            ),
          );
-         print('Selecionou vomito');
        break;
 
      }
@@ -226,14 +213,13 @@ class OpcaoCard extends StatelessWidget {
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
           openPage(opcao.linkAction);
-          print('Card tapped.');
         },
         child: Center(
           child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(opcao.icon, size:80.0, color: textStyle.color),
+                Icon(opcao.icon, size:60.0, color: textStyle.color),
                 Text(opcao.titulo, style: textStyle),
 
               ]
