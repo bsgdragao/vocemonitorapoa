@@ -13,14 +13,14 @@ class Auth implements BaseAuth{
     FirebaseUser user = (await FirebaseAuth.instance
         .signInWithEmailAndPassword(
         email: email, password: password)).user;
-    print('Logado: ${user.uid}');
+    //print('Logado: ${user.uid}');
     return user.uid;
   }
   // Método de registro por e-mail
   Future<String> createUserWithEmailAndPassword(String email, String password) async {
     FirebaseUser user = (await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password)).user;
-    print('Criada conta: ${user.uid}');
+    //print('Criada conta: ${user.uid}');
     return user.uid;
   }
   // Método de Status do usuário (Logado ou não)

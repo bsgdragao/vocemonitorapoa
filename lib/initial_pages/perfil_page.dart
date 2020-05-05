@@ -68,7 +68,7 @@ class _PerfilPageState extends State<PerfilPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar:  AppBar(
-          title:  AutoSizeText("Perfil", style: TextStyle(
+          title:  AutoSizeText("Perfil de Usuário: ", style: TextStyle(
               color: Colors.blueAccent
           )),
           automaticallyImplyLeading: false,

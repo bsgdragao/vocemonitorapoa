@@ -165,7 +165,6 @@ class OpcaoCard extends StatelessWidget {
              builder: (context) => new PancadaPage(),
            ),
          );
-         print('Selecionou pancada');
        break;
 
        case 'Sangramento':
