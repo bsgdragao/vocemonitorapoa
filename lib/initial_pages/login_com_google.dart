@@ -10,96 +10,54 @@ import 'package:vocemonitorapoa/tasks/auth.dart';
 import 'perfil_page.dart';
 
 
-class LoginGoogle extends StatelessWidget {
-  // This widget is the root of your application.
-
+class LoginGoogle extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Você Monitora POA',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Color(0xffffffff),
-      ),
-      home: GoogleSignApp(),
+  _LoginGoogleState createState() => _LoginGoogleState();
+}
+
+class _LoginGoogleState extends State<LoginGoogle> {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<FirebaseUser> _handleSignIn() async {
+    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
     );
+
+    final FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
+    print("signed in " + user.displayName);
+    saveProfile(user);
+    return user;
+
   }
-}
 
-class GoogleSignApp extends StatefulWidget {
-  @override
-  _GoogleSignAppState createState() => _GoogleSignAppState();
-}
-
-class _GoogleSignAppState extends State<GoogleSignApp> {
-
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = new GoogleSignIn();
-
-  UserDetails userLogged;
-
-  Future<FirebaseUser> _signIn(BuildContext context) async {
-
+  saveProfile(FirebaseUser userL) async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth =await googleUser.authentication;
+    prefs.setString('userEmail', userL.email);
+    prefs.setString('userId', userL.providerId);
+    prefs.setString('userName',  userL.displayName);
+    prefs.setString('photoUrl',  userL.photoUrl);
 
-      final AuthCredential credential = GoogleAuthProvider.getCredential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      FirebaseUser userDetails = (await _firebaseAuth.signInWithCredential(credential)).user;
-      ProviderDetails providerInfo = new ProviderDetails(userDetails.providerId);
-
-      List<ProviderDetails> providerData = new List<ProviderDetails>();
-      providerData.add(providerInfo);
-
-      UserDetails details = new UserDetails(
-        userDetails.providerId,
-        userDetails.displayName,
-        userDetails.photoUrl,
-        userDetails.email,
-        providerData,
-      );
-
-      prefs.setString('userEmail', userDetails.email);
-      prefs.setString('userId', userDetails.providerId);
-      prefs.setString('userName',  userDetails.displayName);
-      prefs.setString('photoUrl',  userDetails.photoUrl);
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => new PerfilPage(),
-        ),
-      );
-      return userDetails;
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => new PerfilPage(),
+      ),
+    );
   }
 
   @override
   void initState() {
     // TODO: implement initState
-    verifyLogin();
     super.initState();
+    _handleSignIn()
+        .then((FirebaseUser user) => print(user))
+        .catchError((e) => print(e));
   }
-
-  verifyLogin() async {
-    print('Entrou no verify');
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    if(prefs.getString('userEmail') != null){
-      print('Entrou no if do verify');
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => new PerfilPage(),),
-      );
-    }else{
-      print('Entrou no else do verify');
-      _signIn(context).then((FirebaseUser user) => print(user)).catchError((e) => print(e));
-  }
-
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -114,6 +72,8 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
                 Image.asset('assets/medico.png'),
                 AutoSizeText('Você Monitora POA',
                     style: TextStyle(fontSize: 38, color: Color.fromRGBO(65, 105, 225, 2))),
+                AutoSizeText('Fazendo login...',
+                    style: TextStyle(color: Colors.grey),minFontSize: 14,),
                 SizedBox(height:10.0),
 
               ],
@@ -122,20 +82,4 @@ class _GoogleSignAppState extends State<GoogleSignApp> {
         ),),
     );
   }
-}
-
-class UserDetails {
-  final String providerDetails;
-  final String userName;
-  final String photoUrl;
-  final String userEmail;
-  final List<ProviderDetails> providerData;
-
-  UserDetails(this.providerDetails,this.userName, this.photoUrl,this.userEmail, this.providerData);
-}
-
-
-class ProviderDetails {
-  ProviderDetails(this.providerDetails);
-  final String providerDetails;
 }
