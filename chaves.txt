@@ -72,3 +72,62 @@ O armazenamento de chaves JKS usa um formato proprietário. É recomendada a mig
 ol -importkeystore -srckeystore C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/android/app/key.jks -destkeystore C:/Users/bruno/VisualStudioPr
 ojects/voce_monitora_poa/android/app/key.jks -deststoretype pkcs12".
 
+
+
+keytool -list -v -alias vocemonitorapoa -keystore C:\Users\bruno\.android\debug.keystore
+
+keytool -list -v -alias androiddebugkey -keystore C:\Users\bruno\.android\debug.keystore
+
+keytool -importkeystore -srckeystore C:\Users\bruno\.android\debug.keystore -destkeystore C:\Users\bruno\.android\debug.keystore -deststoret ype pkcs12
+
+keytool -list -v -alias vocemonitorapoa -keystore C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/android/app/key.jks
+
+C:\Users\bruno\VisualStudioProjects\voce_monitora_poa>keytool -list -v -alias vocemonitorapoa -keystore C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/android/app/key.jks
+Informe a senha da área de armazenamento de chaves:
+
+*****************  WARNING WARNING WARNING  *****************
+* A integridade das informações armazenadas na sua área de armazenamento de chaves  *
+* NÃO foi verificada!  Para que seja possível verificar sua integridade, *
+* você deve fornecer a senha da área de armazenamento de chaves.                  *
+*****************  WARNING WARNING WARNING  *****************
+
+Nome do alias: vocemonitorapoa
+Data de criação: 25/04/2020
+Tipo de entrada: PrivateKeyEntry
+Comprimento da cadeia de certificados: 1
+Certificado[1]:
+Proprietário: CN=Bruno Guerra, OU=Bitfrost Tecnologia, O=Bitfrost Tecnologia, L=Porto Alegre, ST=Rio Grande do Sul, C=BR
+Emissor: CN=Bruno Guerra, OU=Bitfrost Tecnologia, O=Bitfrost Tecnologia, L=Porto Alegre, ST=Rio Grande do Sul, C=BR
+Número de série: 5e297f6e
+Válido de Sat Apr 25 13:47:28 BRT 2020 até Wed Sep 11 13:47:28 BRT 2047
+Fingerprints do certificado:
+         MD5:  53:17:51:0E:0D:90:A1:DF:75:DA:F3:55:93:0E:B9:D0
+         SHA1: 36:77:76:AB:9C:82:C6:0E:32:B6:62:E7:80:5B:F1:1C:FA:F2:19:0D
+         SHA256: 6E:C2:38:C0:7D:47:AD:D3:5B:EA:4A:E8:89:70:A1:A4:2D:77:3D:FF:1F:EA:41:5D:A8:10:2C:15:97:7D:D7:5C
+Nome do algoritmo de assinatura: SHA256withRSA
+Algoritmo de Chave Pública do Assunto: Chave RSA de 2048 bits
+Versão: 3
+
+Extensões:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: F9 21 FD E3 D0 24 AA 74   65 BD BE 24 33 58 AE D9  .!...$.te..$3X..
+0010: CD B5 70 4D                                        ..pM
+]
+]
+
+
+Warning:
+O armazenamento de chaves JKS usa um formato proprietário. É recomendada a migração para PKCS12, que é um formato de padrão industrial que usa "keytool -importkeystore -srckeystore C:/Users/bruno/VisualStudioPr
+ojects/voce_monitora_poa/android/app/key.jks -destkeystore C:/Users/bruno/VisualStudioProjects/voce_monitora_poa/android/app/key.jks -deststoretype pkcs12".
+
+
+
+
+
+
+
+
+

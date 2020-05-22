@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/initial_pages/perfil_page.dart';
@@ -8,7 +7,6 @@ import 'package:vocemonitorapoa/tasks/status_login.dart';
 class EmailLogin extends StatefulWidget {
   EmailLogin({@required this.auth});
   final BaseAuth auth;
-
   @override
   State<StatefulWidget> createState() => new _EmailLoginState();
 }
@@ -17,38 +15,29 @@ enum FormType{
   login,
   register,
 }
-
 class _EmailLoginState extends State<EmailLogin> {
-
   AuthStatus authStatus = AuthStatus.naoLogado;
-
   // Chave de definição do formulário
   final formKey = new GlobalKey<FormState>();
-
   // Variáveis do formulário
   String _email;
   String _password;
   FormType _formType = FormType.login;
-
   initState() {
     // TODO: implement initState
       jaLogado();
     super.initState();
   }
-
   // Persistencia de dados
   Future<void> jaLogado() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-
     if(prefs.get('userEmail') != null){
       Navigator.push(
         context,
         new MaterialPageRoute(
           builder: (context) => new PerfilPage(), ),);
     }
-
   }
-
   // Validação se os dados de formulário foram preeenchidos
   bool validateAndSave(){
     final form = formKey.currentState;
@@ -59,7 +48,6 @@ class _EmailLoginState extends State<EmailLogin> {
       return false;
     }
   }
-
   // Recebimento dos dados validados e envio dos mesmos
   void validateAndSubmitLogin() async{
     if(validateAndSave()){
@@ -68,27 +56,26 @@ class _EmailLoginState extends State<EmailLogin> {
         if(_formType == FormType.login) {
           String userId = await widget.auth.signInWithEmailAndPassword(
               _email, _password);
-          print("1º if Validade and Submit");
+          //print("1º if Validade and Submit");
         }else{
           // Se for registro
           String userId = await widget.auth.createUserWithEmailAndPassword(
               _email, _password);
         }
       }catch(e){
-        print('Erro ao fazer login $e');
-        _showDialog("Erro", "Erro ao fazer login $e");
+        //print('Erro ao fazer login $e');
+        _showDialog("Formato errado", "Não pode haver ESPAÇO DEPOIS DO E-MAIL, formato invalido.  $e");
       }
       if(_email != null){
-        print("Logado no Validade and Submit");
+        //print("Logado no Validade and Submit");
         setState(() {
           doLogIn();
         });
       }else{
-        print("Não logado, passou no else do validate and Submit");
+        //print("Não logado, passou no else do validate and Submit");
       }
     }
   }
-
 // Função de alerta
   void _showDialog(String title, String message) {
     // flutter defined function
@@ -105,7 +92,6 @@ class _EmailLoginState extends State<EmailLogin> {
               child: new Text("Fechar"),
               onPressed: () {
                 Navigator.of(context).pop();
-
               },
             ),
           ],
@@ -113,7 +99,6 @@ class _EmailLoginState extends State<EmailLogin> {
       },
     );
   }
-
   // Troca de tela e Reset de dados ao trocar de opção
   void moveToRegister(){
     formKey.currentState.reset();
@@ -128,36 +113,27 @@ class _EmailLoginState extends State<EmailLogin> {
       _formType = FormType.login;
     });
   }
-
   //Bloco de controle do Login
   TextEditingController nameController = TextEditingController();
   bool isLoggedIn = false;
   String name = '';
-
   void doLogIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-
     final String userId = await widget.auth.signInWithEmailAndPassword(
         _email, _password);
-
     if (userId != null || prefs.get('userEmail') != null) {
       setState(() {
         isLoggedIn = true;
-        print('Abriu no if do autoLogIn com ID: '+ userId);
         prefs.setString('userEmail', _email);
-        prefs.setString('userId', userId);
         prefs.setString('userName', 'Anônimo');
-        print('Email passou como ' + _email);
         Navigator.push(
           context,
           new MaterialPageRoute(
             builder: (context) => new PerfilPage(), ),);
-
       });
       return;
     }
   }
-
   // Bloco de tela
   @override
   Widget build(BuildContext context) {
@@ -184,7 +160,6 @@ class _EmailLoginState extends State<EmailLogin> {
         )
     );
   }
-
   // Entrada de dados do formulário
   List<Widget> builInputs(){
     return[
@@ -203,7 +178,6 @@ class _EmailLoginState extends State<EmailLogin> {
           borderSide: new BorderSide(),), ),
         validator: (value) => value.isEmpty ? 'Senha não pode ser em branco, minimo 6 caracteres.' : null,
         onSaved: (value) => _password = value,
-
       ),
     ];
   }
@@ -218,7 +192,6 @@ class _EmailLoginState extends State<EmailLogin> {
           color: Colors.blue[700],
           child: new Text('Login', style: new TextStyle(fontSize: 20.0, color: Colors.white),),
           onPressed: validateAndSubmitLogin,
-
         ),
         SizedBox(height:10.0),
         new FlatButton(onPressed: moveToRegister,
@@ -238,9 +211,7 @@ class _EmailLoginState extends State<EmailLogin> {
         new FlatButton(onPressed: moveToLogin,
             child: Text('Tem uma conta? Faça Login.', style: TextStyle(fontSize: 20.0) ))
       ];
-
     }
-
   }
 }
 

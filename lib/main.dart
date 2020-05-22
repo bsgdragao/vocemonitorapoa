@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_email_page.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_facebook_page.dart';
 import 'package:vocemonitorapoa/initial_pages/login_com_google.dart';
+import 'package:vocemonitorapoa/initial_pages/perfil_anonimo_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
 
 void main() {
@@ -73,7 +74,6 @@ class _MainPageState extends State<MainPage> {
                       ),
                     )
                 ),
-
                 Container(
                     width: 280.0,
                     child: Align(
@@ -126,6 +126,32 @@ class _MainPageState extends State<MainPage> {
                             context,
                             MaterialPageRoute(builder: (context) =>  new EmailLogin(auth: new Auth()),
                             ),
+                          );
+                        },
+                      ),
+                    )
+                ),
+                Container(
+                    width: 280.0,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        color: Color(0xffffffff),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Icon(FontAwesomeIcons.user,color: Color(0xffCE107C),),
+                            SizedBox(width:10.0),
+                            AutoSizeText(
+                                '  Usar sem Logar',
+                                style: TextStyle(color: Colors.black), minFontSize: 12.0),
+                          ],),
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => new PerfilAnonimoPage(),),
                           );
                         },
                       ),

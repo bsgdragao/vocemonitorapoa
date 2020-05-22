@@ -8,14 +8,11 @@ import 'package:vocemonitorapoa/data_managers/hospitals_list.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 import '../main.dart';
 
-
-
 // Bloco da página de Perfil
 class PerfilPage extends StatefulWidget {
   @override
   _PerfilPageState createState() => _PerfilPageState();
 }
-
 class _PerfilPageState extends State<PerfilPage> {
   final GoogleSignIn _gSignIn =  GoogleSignIn();
   String _email;
@@ -44,26 +41,26 @@ class _PerfilPageState extends State<PerfilPage> {
       }else{
         _urlPhoto = 'https://image.flaticon.com/icons/svg/17/17004.svg';
       }
-      print(_email);
+
       (context as Element).reassemble();
     });
   }
   @override
   initState() {
     // TODO: implement initState
-    print('Passou no Init');
     _setData();
     super.initState();
   }
-
   // Função para logout
   Future<void> _signOut() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.setString('userEmail', null);
-    preferences.clear();
-    _gSignIn.signOut();
+    await preferences.clear();
+    await preferences.setString('userEmail', null);
+    await FirebaseAuth.instance.signOut();
+    await _gSignIn.signOut();
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+        MyApp()), (Route<dynamic> route) => false);
   }
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -80,14 +77,7 @@ class _PerfilPageState extends State<PerfilPage> {
                 color: Colors.blueAccent,
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (context) => new MyApp(),
-                  ),
-                );
-                _signOut();
-              },
+                _signOut();              },
             ),
           ],
         ),

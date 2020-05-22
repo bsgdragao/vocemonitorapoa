@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "177433541490-6vstaud2dou07r602n3q29vsq6qq9p4k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sms.vocemonitorapoa",
+            "certificate_hash": "367776ab9c82c60e32b662e7805bf11cfaf2190d"
+          }
+        },
+        {
           "client_id": "177433541490-3keq3mbcokk5i73nj2eu0dmj9goo64e2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

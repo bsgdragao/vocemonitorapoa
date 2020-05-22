@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -202,13 +203,10 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
   _logout() async {
     await facebookLogin.logOut();
     onLoginStatusChanged(false);
+    await FirebaseAuth.instance.signOut();
     setState(() {
-      Navigator.push(
-        context,
-        new MaterialPageRoute(
-            builder: (context) => new MyApp(),
-      ),
-      );
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+          MyApp()), (Route<dynamic> route) => false);
     });
   }
 }
