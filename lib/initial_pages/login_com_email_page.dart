@@ -197,7 +197,7 @@ class _EmailLoginState extends State<EmailLogin> {
         SizedBox(height:10.0),
         new FlatButton(onPressed: moveToRegister,
             child: Text('Não tem conta? Crie uma.', style: TextStyle(fontSize: 20.0) )),
-        new FlatButton(onPressed: (){ launch("mailto:bsgdragao@gmail.com");},
+        new FlatButton(onPressed: (){ launch("mailto:<bsgdragao@gmail.com>?subject=Reset de conta&body=Solicito o reset da minha conta.");},
             child: Text('Esqueceu a senha?', style: TextStyle(fontSize: 20.0) )),
       ];
     }else{

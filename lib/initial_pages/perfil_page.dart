@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/data_managers/hospitals_list.dart';
+import 'package:vocemonitorapoa/pacientes/pacientes_page.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 import '../main.dart';
 
@@ -114,6 +115,42 @@ class _PerfilPageState extends State<PerfilPage> {
                         Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
                         SizedBox(width:20.0),
                         AutoSizeText(
+                            'Monitoramento Médico',
+                            style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold ), minFontSize: 10.0
+                        ),
+                      ],),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                          builder: (context) => new PacientePage(),
+                        ),
+                      );
+                    },
+                  ),
+                )
+            ),
+            Center(
+              child:  AutoSizeText(
+                  "      Insira as suas medições \n       de frequência cardíaca, \nglicose, temperatura ou pressão." ,
+                  style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
+              ),
+            ),
+            SizedBox(height: 20.0,),
+            Container(
+                width: 280.0,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0)),
+                    color: Color(0xffffffff),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
+                        SizedBox(width:20.0),
+                        AutoSizeText(
                             'EMERGÊNCIA',
                             style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold ), minFontSize: 10.0
                         ),
@@ -121,19 +158,20 @@ class _PerfilPageState extends State<PerfilPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        new MaterialPageRoute(
-                          builder: (context) => new TriagemPage(),
+                        MaterialPageRoute(builder: (context) =>  new TriagemPage(),
                         ),
                       );
                     },
                   ),
                 )
             ),
-            AutoSizeText(
-                "Para qual hospital devo ir?" ,
-                style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
+            Center(
+              child: AutoSizeText(
+                  "Avalie o tempo de espera \n     de uma emergência." ,
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
+              ),
             ),
-            SizedBox(height:30.0),
+            SizedBox(height:20.0),
             Container(
                 width: 280.0,
                 child: Align(

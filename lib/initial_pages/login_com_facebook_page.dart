@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/data_managers/hospitals_list.dart';
 import 'package:vocemonitorapoa/main.dart';
+import 'package:vocemonitorapoa/pacientes/pacientes_page.dart';
 import 'package:vocemonitorapoa/sintomas_pages/triagem_grid_page.dart';
 
 class LoginComFacebook extends StatefulWidget {
@@ -92,6 +94,11 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
         print(profile.toString());
 
         onLoginStatusChanged(true, profileData: profile);
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+          prefs.setString('userEmail', profileData['name']);
+          prefs.setString('userName', profileData['email']);
+          prefs.setString('photoUrl', profileData['picture']['data']['url']);
+
         break;
     }
   }
@@ -134,26 +141,63 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
                     SizedBox(width:20.0),
                     AutoSizeText(
-                      'EMERGÊNCIA',
-                      style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold ),minFontSize: 10.0
+                        'Monitoramento Médico',
+                        style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold ), minFontSize: 10.0
                     ),
                   ],),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => new TriagemPage(),
-                        ),
-                 );
+                    new MaterialPageRoute(
+                      builder: (context) => new PacientePage(),
+                    ),
+                  );
                 },
               ),
             )
         ),
-        AutoSizeText(
-          "Para qual hospital devo ir?" ,
-          style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]),minFontSize: 10.0
+        Center(
+          child:  AutoSizeText(
+              "      Insira as suas medições \n       de frequência cardíaca, \nglicose, temperatura ou pressão." ,
+              style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
+          ),
         ),
-        SizedBox(height:30.0),
-
+        SizedBox(height: 12.0,),
+        Container(
+            width: 280.0,
+            child: Align(
+              alignment: Alignment.center,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0)),
+                color: Color(0xffffffff),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(FontAwesomeIcons.caretRight,color: Color(0xff4754de),),
+                    SizedBox(width:12.0),
+                    AutoSizeText(
+                        'EMERGÊNCIA',
+                        style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold ), minFontSize: 10.0
+                    ),
+                  ],),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>  new TriagemPage(),
+                    ),
+                  );
+                },
+              ),
+            )
+        ),
+        Center(
+          child: AutoSizeText(
+              "Avalie o tempo de espera \n     de uma emergência." ,
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
+          ),
+        ),
+        SizedBox(height:12.0),
         Container(
             width: 280.0,
             child: Align(
@@ -169,24 +213,23 @@ class _LoginComFacebookState extends State<LoginComFacebook> {
                     SizedBox(width:20.0),
                     AutoSizeText(
                       'Avaliar tempo de espera',
-                      style: TextStyle(color: Colors.blue[900],), minFontSize: 14.0
+                      style: TextStyle(color: Colors.blue[900]), minFontSize: 10.0,
                     ),
                   ],),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    new MaterialPageRoute(
-                      builder: (context) => new HospitalsList(),
-                        ),
-                 );
+                    MaterialPageRoute(builder: (context) =>  new HospitalsList(),
+                    ),
+                  );
                 },
               ),
             )
         ),
         AutoSizeText(
-          "Avalie o tempo de espera \n     de uma emergência." ,
-          style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
-        ),
+            "Avalie o tempo de espera \n     de uma emergência." ,
+            style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]), minFontSize: 10.0
+        )
       ],
     );
   }
