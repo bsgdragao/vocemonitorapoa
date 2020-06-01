@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vocemonitorapoa/initial_pages/perfil_page.dart';
 import 'package:vocemonitorapoa/tasks/auth.dart';
 import 'package:vocemonitorapoa/tasks/status_login.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EmailLogin extends StatefulWidget {
   EmailLogin({@required this.auth});
@@ -195,7 +196,9 @@ class _EmailLoginState extends State<EmailLogin> {
         ),
         SizedBox(height:10.0),
         new FlatButton(onPressed: moveToRegister,
-            child: Text('Não tem conta? Crie uma.', style: TextStyle(fontSize: 20.0) ))
+            child: Text('Não tem conta? Crie uma.', style: TextStyle(fontSize: 20.0) )),
+        new FlatButton(onPressed: (){ launch("mailto:bsgdragao@gmail.com");},
+            child: Text('Esqueceu a senha?', style: TextStyle(fontSize: 20.0) )),
       ];
     }else{
       return[
